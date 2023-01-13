@@ -1,26 +1,48 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useEffect, useState} from 'react';
 import './App.css';
+import MyHeader from "./layout/header"
+import MyFooter from "./layout/footer"
+import MyAside from "./layout/aside"
+import MyMain from "./layout/main"
+import {Pokemon, AppContext} from "./types";
 
-function App() {
+
+export default () => {
+
+    const [list, setList] = useState([{ picture:"", name:"", id:0 }])
+
+    useEffect(() => {
+
+        const urlArr = Array.from({length: 494}, (x, i) => `https://pokeapi.co/api/v2/pokemon/${i+1}`)
+        const getDetailsData = async() => {
+            const detailsData = urlArr.map(async (element: any) => {
+                const data = await fetch(element)
+                return data.json()
+            })
+
+            const payload: Pokemon[] = (await Promise.all(detailsData)).map(data => ({
+                picture: data.sprites.other["official-artwork"].front_default,
+                name: data.name,
+                id: data.id,
+
+            }))
+
+            setList(payload)
+        }
+
+        getDetailsData().then(console.log)
+    },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App-Container">
+          <MyHeader/>
+          <AppContext.Provider value={{list, setList}}>
+            <MyAside/>
+            <MyMain/>
+          </AppContext.Provider>
+          <MyFooter/>
+      </div>
   );
 }
 
-export default App;
+

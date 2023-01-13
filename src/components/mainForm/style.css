@@ -1,0 +1,11 @@
+.Form-Container{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    background: #cbe0e0;
+    gap:3px;
+}
+
+.Form-Container button{
+    cursor:pointer;
+}

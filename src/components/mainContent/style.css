@@ -1,3 +1,7 @@
+.Content-Container{
+    text-align: center;
+}
+
 .Content-List{
     list-style: none;
     padding:10px;

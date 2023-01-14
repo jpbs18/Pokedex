@@ -1,41 +1,42 @@
-import "./style.css"
+import {Container, List, Item, Button} from "./style"
 export default () => {
+
     return(
-        <aside className="Aside-Container">
+        <Container className="Aside-Container">
 
-            <ul className="Aside-List">
+            <List className="Aside-List">
                 <h4>Search by Generation:</h4>
-                <li className="Item-List">
-                    <button>1º Gen</button>
-                    <button>2º Gen</button>
-                    <button>3º Gen</button>
-                    <button>4º Gen</button>
-                </li>
-            </ul>
+                <Item className="Item-List">
+                    <Button>1º Gen</Button>
+                    <Button>2º Gen</Button>
+                    <Button>3º Gen</Button>
+                    <Button>4º Gen</Button>
+                </Item>
+            </List>
 
-            <ul className="Aside-List">
+            <List className="Aside-List">
                 <h4>Search by Type:</h4>
-                <li className="Item-List">
-                    <button>Water</button>
-                    <button>Ice</button>
-                    <button>Fire</button>
-                    <button>Grass</button>
-                    <button>Bug</button>
-                    <button>Poison</button>
-                    <button>Electric</button>
-                    <button>Psychic</button>
-                    <button>Normal</button>
-                    <button>Dark</button>
-                    <button>Dragon</button>
-                    <button>Fairy</button>
-                    <button>Ground</button>
-                    <button>Steel</button>
-                    <button>Rock</button>
-                    <button>Fighting</button>
-                    <button>Ghost</button>
-                    <button>Flying</button>
-                </li>
-            </ul>
-        </aside>
+                <Item className="Item-List">
+                    <Button>Water</Button>
+                    <Button>Ice</Button>
+                    <Button>Fire</Button>
+                    <Button>Grass</Button>
+                    <Button>Bug</Button>
+                    <Button>Poison</Button>
+                    <Button>Electric</Button>
+                    <Button>Psychic</Button>
+                    <Button>Normal</Button>
+                    <Button>Dark</Button>
+                    <Button>Dragon</Button>
+                    <Button>Fairy</Button>
+                    <Button>Ground</Button>
+                    <Button>Steel</Button>
+                    <Button>Rock</Button>
+                    <Button>Fighting</Button>
+                    <Button>Ghost</Button>
+                    <Button>Flying</Button>
+                </Item>
+            </List>
+        </Container>
     )
 }

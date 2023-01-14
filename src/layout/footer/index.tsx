@@ -1,8 +1,8 @@
-import "./style.css"
+import {Container} from "./style"
 export default () => {
     return(
-        <footer className="Footer-Container">
+        <Container className="Footer-Container">
             <p>Created by João Santos</p>
-        </footer>
+        </Container>
     )
 }

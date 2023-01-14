@@ -1,4 +1,4 @@
-import {createContext, Dispatch, SetStateAction} from "react";
+import {Dispatch, SetStateAction} from "react";
 
 export interface Pokemon{
     picture:string,
@@ -11,12 +11,15 @@ export interface AppContextType{
     setList:Dispatch<SetStateAction<Pokemon[]>>
 }
 
+export interface ModeContextType{
+    darkMode: boolean,
+    setDarkMode: Dispatch<SetStateAction<boolean>>
+}
 
-export const AppContext= createContext<AppContextType>({
-    list: [{
-        picture:"",
-        name:"",
-        id:0
-    }],
-    setList: () => null
-})
+export interface MainProps{
+    noMatch: boolean
+}
+
+export interface FormProps{
+    setNoMatch: Dispatch<SetStateAction<boolean>>
+}

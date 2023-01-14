@@ -19,6 +19,11 @@ export default () => {
     useEffect(() => {
         const getDetailsData = async() => {
 
+            if(localStorage.getItem("darkMode")){
+                console.log(Boolean(localStorage.getItem("darkMode")))
+                setDarkMode(Boolean(localStorage.getItem("darkMode")))
+            }
+
             if(localStorage.getItem("list")){
                 setList(JSON.parse(localStorage.getItem("list") || "{}"))
                 return
@@ -37,6 +42,7 @@ export default () => {
 
             setList(payload)
             localStorage.setItem("list", JSON.stringify(payload))
+            localStorage.setItem("darkMode", String(darkMode))
         }
 
         getDetailsData().then(console.log)

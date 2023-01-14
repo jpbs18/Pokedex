@@ -7,10 +7,15 @@ export default () => {
 
     const {darkMode, setDarkMode} = useContext(ModeContext)
 
+    const handleDarkMode = () => {
+        setDarkMode(!darkMode)
+        localStorage.setItem("darkMode", String(!darkMode))
+    }
+
     return(
         <Container className="Header-Container">
             <img src={`${process.env.PUBLIC_URL}/pokemon_logo.png`} alt="Pokemon logo" width={"20%"} height={"80%"}/>
-            <Button onClick={() => setDarkMode(!darkMode)}>{darkMode ? "🌕" : "🌑"}</Button>
+            <Button onClick={handleDarkMode}>{darkMode ? "🌕" : "🌑"}</Button>
         </Container>
     )
 }

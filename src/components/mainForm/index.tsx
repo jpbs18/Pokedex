@@ -5,7 +5,7 @@ import {getTotalLength} from "../../utils/functions";
 
 export default () => {
 
-    const {list, setList, setNoMatch} = useContext(AppContext)
+    const {list, setList, setNoMatch, noMatch} = useContext(AppContext)
     const [currentName, setCurrentName] = useState("");
 
     const filterByName = () => {
@@ -28,7 +28,7 @@ export default () => {
 
     return(
         <Container className="Form-Container">
-            {list.length === getTotalLength() ||
+            {(list.length === getTotalLength() || noMatch) ||
                 <span className="Counter">{`Found ${list.length}/${getTotalLength()} results`}</span>
             }
             <Form className="Label-Container">

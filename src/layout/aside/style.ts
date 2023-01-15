@@ -9,9 +9,7 @@ export const Container = styled.aside`
   color: ${props => props.theme.textColor};
 
   @media only screen and (max-width:420px){
-    .Aside-Container{
       flex-direction:row;
-    }
   }
 `
 
@@ -24,10 +22,8 @@ export const List = styled.ul`
   align-items:center;
 
   @media only screen and (max-width:420px){
-    .Aside-Container .Aside-List{
       flex-direction:row;
       align-items:center;
-    }
   }
 `
 

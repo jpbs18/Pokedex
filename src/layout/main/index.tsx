@@ -1,7 +1,7 @@
 import MyForm from "../../components/mainForm"
 import MyContent from "../../components/mainContent"
 import {useState} from "react"
-import "./style.css"
+import "./style.css";
 
 
 export default () => {

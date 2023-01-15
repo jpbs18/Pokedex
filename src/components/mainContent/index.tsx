@@ -1,8 +1,8 @@
-import "./style.css"
 import {useContext} from "react"
 import {MainProps} from "../../types"
 import {AppContext} from "../../context";
 import {capitalize} from "../../utils/functions";
+import {Container, List, Item, Img} from "./style"
 
 export default (props: MainProps) => {
 
@@ -10,7 +10,7 @@ export default (props: MainProps) => {
     const pokemonList = list[0].name !== "" ? list : []
 
     return(
-        <div className="Content-Container">
+        <Container className="Content-Container">
             {props.noMatch ?
                 <div className="NotFound-Container">
                     <h1>Sorry, we don't have results for that name!</h1>
@@ -18,15 +18,15 @@ export default (props: MainProps) => {
                          width={"30%"} height={"50%"}/>
                 </div>
                 :
-                <ul className="Content-List">
+                <List className="Content-List">
                     {pokemonList.map(pokemon => {
-                        return <li key={pokemon.id}>
-                                    <img src={pokemon.picture} alt={`Picture of ${pokemon.name}`}/>
+                        return <Item key={pokemon.id}>
+                                    <Img src={pokemon.picture} alt={`Picture of ${pokemon.name}`}/>
                                     <span>{`#${pokemon.id} - ${capitalize(pokemon.name)}`}</span>
-                                </li>
+                                </Item>
                     })}
-                </ul>
+                </List>
             }
-        </div>
+        </Container>
     )
 }

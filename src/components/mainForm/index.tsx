@@ -1,11 +1,11 @@
-import "./style.css"
 import {FormProps} from "../../types";
 import React, {useContext, useState} from "react";
 import {AppContext} from "../../context";
+import {Container, Button, Label} from "./style"
 
 export default (props: FormProps) => {
 
-    const {setList} = useContext(AppContext)
+    const {list, setList} = useContext(AppContext)
     const [currentName, setCurrentName] = useState("");
 
     const filterByName = () => {
@@ -21,13 +21,20 @@ export default (props: FormProps) => {
         setList(JSON.parse(localStorage.getItem("list") || "{}"))
     }
 
+    const getTotalLength = () => JSON.parse(localStorage.getItem("list") || "{}").length
+
     return(
-        <div className="Form-Container">
-            <h4>Search by name:</h4>
-            <input type="text" value={currentName} onChange={e => setCurrentName(e.target.value)}/>
-            <button onClick={filterByName}>🔍</button>
-            <button onClick={cleanFilter}>🌊</button>
-        </div>
+        <Container className="Form-Container">
+            {list.length === getTotalLength() ||
+                <span className="Counter">{`Found ${list.length}/${getTotalLength()} results`}</span>
+            }
+            <Label className="Label-Container">
+                <h4>Search by name:</h4>
+                <input type="text" value={currentName} onChange={e => setCurrentName(e.target.value)}/>
+                <Button onClick={filterByName}>🔍</Button>
+                <Button onClick={cleanFilter}>🌊</Button>
+            </Label>
+        </Container>
     )
 }
 

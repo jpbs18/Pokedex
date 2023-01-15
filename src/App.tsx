@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import MyHeader from "./layout/header"
-import MyFooter from "./layout/footer"
-import MyAside from "./layout/aside"
-import MyMain from "./layout/main"
+import {MyHeader, MyMain, MyAside,MyFooter} from "./layout"
 import {AppContext, ModeContext} from "./context";
 import {urlArray} from "./utils/functions";
 import {typeUrl} from "./utils/variables"

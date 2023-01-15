@@ -1,5 +1,4 @@
-import MyForm from "../../components/mainForm"
-import MyContent from "../../components/mainContent"
+import {MyForm, MyContent} from "../../components"
 import "./style.css";
 
 export default () => {

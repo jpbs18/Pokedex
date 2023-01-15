@@ -31,8 +31,9 @@ export default (props: FormProps) => {
                 <span className="Counter">{`Found ${list.length}/${size} results`}</span>
             }
             <Label className="Label-Container">
-                <h4>Search by name:</h4>
-                <input type="text" value={currentName} onChange={e => setCurrentName(e.target.value)}/>
+                <label>Search by name:
+                    <input type="text" value={currentName} onChange={e => setCurrentName(e.target.value)}/>
+                </label>
                 <Button onClick={filterByName}>🔍</Button>
                 <Button onClick={cleanFilter}>🌊</Button>
             </Label>

@@ -15,7 +15,7 @@ export const List = styled.ul`
   max-height:100%;
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap:10px;
+  gap:8px;
 
   @media only screen and (min-width:1000px){
       display: grid;
@@ -45,7 +45,7 @@ export const Item = styled.li`
 
 export const Img = styled.img`
   height:215px;
-  width:210px;
+  width:215px;
   padding:10px;
 `
 

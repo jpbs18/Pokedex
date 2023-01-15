@@ -14,7 +14,7 @@ export default (props: MainProps) => {
             {props.noMatch ?
                 <div className="NotFound-Container">
                     <h1>Sorry, we don't have results for that name!</h1>
-                    <img src={`${process.env.PUBLIC_URL}/pokemon_fainted.jpg`} alt={"Pokemon not found!"}
+                    <img src={`${process.env.PUBLIC_URL}/pokemon_fainted.webp`} alt={"Pokemon not found!"}
                          width={"30%"} height={"50%"}/>
                 </div>
                 :

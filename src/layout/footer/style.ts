@@ -5,5 +5,5 @@ export const Container = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${props => props.theme.textColor}
+  color: white;
 `

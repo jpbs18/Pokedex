@@ -18,5 +18,6 @@ export const theme = {
         formColor: "#cbe0e0",
         footerColor: "#467689",
         textColor:"black"
+
     }
 }

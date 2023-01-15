@@ -13,8 +13,7 @@ export const Container = styled.aside`
   }
 `
 
-export const List = styled.ul`
-  list-style:none;
+export const List = styled.div`
   display:flex;
   flex-direction:column;
   padding:0;
@@ -27,11 +26,12 @@ export const List = styled.ul`
   }
 `
 
-export const Item = styled.li`
+export const Item = styled.ul`
   display:flex;
   flex-direction:column;
   gap:5px;
   width:65%;
+  list-style:none;
 `
 
 export const Button = styled.button`

@@ -14,7 +14,7 @@ export default () => {
 
     return(
         <Container className="Header-Container">
-            <img src={`${process.env.PUBLIC_URL}/pokemon_logo.png`} alt="Pokemon logo" width={"20%"} height={"80%"}/>
+            <img src={`${process.env.PUBLIC_URL}/pokemon_logo.webp`} alt="Pokemon logo" width={"21%"} height={"85%"}/>
             <Button onClick={handleDarkMode}>{darkMode ? "🌕" : "🌑"}</Button>
         </Container>
     )

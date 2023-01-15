@@ -2,7 +2,6 @@ import "./style.css"
 import {FormProps} from "../../types";
 import React, {useContext, useState} from "react";
 import {AppContext} from "../../context";
-import {Pokemon} from "../../types"
 
 export default (props: FormProps) => {
 

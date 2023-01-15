@@ -4,7 +4,6 @@ import MyHeader from "./layout/header"
 import MyFooter from "./layout/footer"
 import MyAside from "./layout/aside"
 import MyMain from "./layout/main"
-import {Pokemon} from "./types";
 import {AppContext, ModeContext} from "./context";
 import {urlArray} from "./utils/functions";
 import {ThemeProvider} from "styled-components"
@@ -16,19 +15,19 @@ export default () => {
     const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true");
 
     useEffect(() => {
-        const getDetailsData = async() => {
 
-            if(localStorage.getItem("list")){
-                setList(JSON.parse(localStorage.getItem("list") || "{}"))
-                return
-            }
+        if(localStorage.getItem("list")){
+            setList(JSON.parse(localStorage.getItem("list") || "{}"))
+            return
+        }
+        const getDetailsData = async() => {
 
             const detailsData = urlArray.map(async (element: any) => {
                 const data = await fetch(element)
                 return data.json()
             })
 
-            const payload: Pokemon[] = (await Promise.all(detailsData)).map(data => ({
+            const payload = (await Promise.all(detailsData)).map(data => ({
                 picture: data.sprites.other["official-artwork"].front_default,
                 name: data.name,
                 id: data.id,
@@ -50,9 +49,9 @@ export default () => {
                 <MyAside/>
                 <MyMain/>
             </AppContext.Provider>
-          <MyFooter/>
-        </ModeContext.Provider>
-        </ThemeProvider>
+            <MyFooter/>
+          </ModeContext.Provider>
+          </ThemeProvider>
       </div>
   );
 }

@@ -14,14 +14,15 @@ export default (props: MainProps) => {
             {props.noMatch ?
                 <div className="NotFound-Container">
                     <h1>Sorry, we don't have results for that name!</h1>
-                    <img src={`${process.env.PUBLIC_URL}/pokemon_fainted.jpg`} alt={"Pokemon not found!"} width={"30%"} height={"50%"}/>
+                    <img src={`${process.env.PUBLIC_URL}/pokemon_fainted.jpg`} alt={"Pokemon not found!"}
+                         width={"30%"} height={"50%"}/>
                 </div>
                 :
                 <ul className="Content-List">
-                    {pokemonList.map(e => {
-                        return <li key={e.id}>
-                                    <img src={e.picture} alt={`Picture of ${e.name}`}/>
-                                    <span>{`#${e.id} - ${capitalize(e.name)}`}</span>
+                    {pokemonList.map(pokemon => {
+                        return <li key={pokemon.id}>
+                                    <img src={pokemon.picture} alt={`Picture of ${pokemon.name}`}/>
+                                    <span>{`#${pokemon.id} - ${capitalize(pokemon.name)}`}</span>
                                 </li>
                     })}
                 </ul>

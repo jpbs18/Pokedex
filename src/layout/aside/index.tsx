@@ -8,18 +8,14 @@ export default () => {
             <List className="Aside-List">
                 <h4>Search by Generation:</h4>
                 <Item className="Item-List">
-                    {generations.map((e,i) => {
-                        return <Button key={`${e}-${i}`}>{e}</Button>
-                    })}
+                    {generations.map((gen,i) => <Button key={`Gen-${gen}-${i}`}>{gen}</Button>)}
                 </Item>
             </List>
 
             <List className="Aside-List">
                 <h4>Search by Type:</h4>
                 <Item className="Item-List">
-                    {types.map((e,i) => {
-                        return <Button key={`2${e}-${i}`}>{e}</Button>
-                    })}
+                    {types.map((type,i) => <Button key={`Type-${type}-${i}`}>{type}</Button>)}
                 </Item>
             </List>
         </Container>

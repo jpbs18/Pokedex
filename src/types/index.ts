@@ -3,12 +3,21 @@ import {Dispatch, SetStateAction} from "react";
 export interface Pokemon{
     picture:string,
     name:string,
-    id:number
+    id:number,
+    type:string
+}
+
+export interface Type{
+    name:string,
+    url:string
 }
 
 export interface AppContextType{
     list:Pokemon[],
-    setList:Dispatch<SetStateAction<Pokemon[]>>
+    setList:Dispatch<SetStateAction<Pokemon[]>>,
+    types:Type[],
+    noMatch:boolean,
+    setNoMatch:Dispatch<SetStateAction<boolean>>
 }
 
 export interface ModeContextType{
@@ -16,10 +25,3 @@ export interface ModeContextType{
     setDarkMode: Dispatch<SetStateAction<boolean>>
 }
 
-export interface MainProps{
-    noMatch: boolean
-}
-
-export interface FormProps{
-    setNoMatch: Dispatch<SetStateAction<boolean>>
-}

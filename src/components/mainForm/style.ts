@@ -14,7 +14,7 @@ export const Button = styled.button`
   cursor:pointer;
 `
 
-export const Label = styled.div`
+export const Form = styled.div`
   display: flex;
   align-items: center;
   height:50%;

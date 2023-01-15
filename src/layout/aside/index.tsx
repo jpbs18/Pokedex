@@ -1,15 +1,29 @@
 import {Container, List, Item, Title, Button, ListContainer} from "./style"
-import {generations, types} from "../../utils/variables";
+import {generations} from "../../utils/variables";
 import {AppContext} from "../../context";
 import {useContext} from "react";
+import {capitalize} from "../../utils/functions";
+import {Pokemon} from "../../types";
 
 export default () => {
 
-    const {setList} = useContext(AppContext)
+    const {types, setList, setNoMatch} = useContext(AppContext)
 
     const filterByGeneration = (data: number[]) => {
         const pokemonList = JSON.parse(localStorage.getItem("list") || "{}")
         setList(pokemonList.slice(data[0], data[1]))
+    }
+
+    const filterByType = (data: string) => {
+        const pokemonList = JSON.parse(localStorage.getItem("list") || "{}")
+        const filteredData = pokemonList.filter((pokemon: Pokemon) => pokemon.type === data)
+
+        if(filteredData.length > 0) {
+            setList(filteredData)
+            setNoMatch(false)
+        }
+
+        else setNoMatch(true)
     }
 
     return(
@@ -28,7 +42,11 @@ export default () => {
             <ListContainer>
                 <Title>Search by type:</Title>
                 <List>
-                    {types.map((type,i) => <Item key={`Type-${type}-${i}`}><Button>{type}</Button></Item>)}
+                    {types.map((type,i) => {
+                        return <Item key={`Type-${type.name}-${i}`}>
+                            <Button onClick={() => filterByType(type.name)}>{capitalize(type.name)}</Button>
+                        </Item>
+                    })}
                 </List>
             </ListContainer>
         </Container>

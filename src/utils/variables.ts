@@ -1,5 +1,5 @@
-export const types = ["Water", "Ice", "Fire", "Grass", "Bug", "Poison", "Electric", "Psychic", "Normal",
-                      "Dark", "Dragon", "Fairy", "Ground", "Steel", "Rock", "Fighting", "Ghost", "Flying"]
+export const pokemonUrl = "https://pokeapi.co/api/v2/pokemon"
+export const typeUrl = "https://pokeapi.co/api/v2/type"
 export const generations = [
     {name: "1º Gen", gap:[0, 151]},
     {name: "2ª Gen", gap:[152, 251]},

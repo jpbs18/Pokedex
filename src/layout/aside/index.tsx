@@ -1,4 +1,4 @@
-import {Container, List, Item, Button} from "./style"
+import {Container, List, Item, Title, Button, ListContainer} from "./style"
 import {generations, types} from "../../utils/variables";
 import {AppContext} from "../../context";
 import {useContext} from "react";
@@ -13,24 +13,24 @@ export default () => {
     }
 
     return(
-        <Container className="Aside-Container">
-            <List className="Aside-List">
-
-                <Item className="Item-List">
+        <Container>
+            <ListContainer>
+                <Title>Search by generation:</Title>
+                <List>
                     {generations.map((gen,i) => {
-                        return <li key={`Gen-${gen.name}-${i}`}><Button onClick={() => filterByGeneration(gen.gap)}>
+                        return <Item key={`Gen-${gen.name}-${i}`}><Button onClick={() => filterByGeneration(gen.gap)}>
                             {gen.name}
-                        </Button></li>
+                        </Button></Item>
                     })}
-                </Item>
-            </List>
+                </List>
+            </ListContainer>
 
-            <List className="Aside-List">
-
-                <Item className="Item-List">
-                    {types.map((type,i) => <li key={`Type-${type}-${i}`}><Button>{type}</Button></li>)}
-                </Item>
-            </List>
+            <ListContainer>
+                <Title>Search by type:</Title>
+                <List>
+                    {types.map((type,i) => <Item key={`Type-${type}-${i}`}><Button>{type}</Button></Item>)}
+                </List>
+            </ListContainer>
         </Container>
     )
 }

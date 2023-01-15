@@ -41,6 +41,12 @@ export const Item = styled.li`
   border: 1px solid ${props => props.theme.textColor};
   border-radius:10px;
   background: ${props => props.theme.itemColor};
+  cursor:pointer;
+  
+  :hover{
+    background: ${props => props.theme.cardHover};
+    color: ${props => props.theme.textColor}
+  }
 `
 
 export const Img = styled.img`

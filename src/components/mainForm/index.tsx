@@ -1,5 +1,5 @@
 import {FormProps} from "../../types";
-import React, {useContext, useState, useMemo} from "react";
+import React, {useContext, useState} from "react";
 import {AppContext} from "../../context";
 import {Container, Button, Label} from "./style"
 import {getTotalLength} from "../../utils/functions";
@@ -23,12 +23,11 @@ export default (props: FormProps) => {
         setList(JSON.parse(localStorage.getItem("list") || "{}"))
     }
 
-    const size = useMemo(() => getTotalLength(),[])
 
     return(
         <Container className="Form-Container">
             {list.length === getTotalLength() ||
-                <span className="Counter">{`Found ${list.length}/${size} results`}</span>
+                <span className="Counter">{`Found ${list.length}/${getTotalLength()} results`}</span>
             }
             <Label className="Label-Container">
                 <label>Search by name:

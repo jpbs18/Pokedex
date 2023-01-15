@@ -13,10 +13,9 @@ export const Container = styled.aside`
   }
 `
 
-export const List = styled.div`
+export const ListContainer = styled.div`
   display:flex;
   flex-direction:column;
-  padding:0;
   justify-content:center;
   align-items:center;
 
@@ -26,16 +25,34 @@ export const List = styled.div`
   }
 `
 
-export const Item = styled.ul`
+export const Title = styled.span`
+  padding:5px;
+  margin:0;
+  text-align:center
+`
+
+export const List = styled.ul`
   display:flex;
   flex-direction:column;
+  justify-content: center;
   gap:5px;
-  width:65%;
   list-style:none;
+  padding:0;
+`
+
+export const Item = styled.li`
+  display:flex;
+  justify-content: center;
 `
 
 export const Button = styled.button`
   cursor:pointer;
   border:none;
   border-radius:20px;
+  width:70px;
+  
+  :hover{
+    background: ${props => props.theme.headerColor};
+    color: ${props => props.theme.secondTextColor}
+  }
 `

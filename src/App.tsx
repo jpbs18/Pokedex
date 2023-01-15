@@ -6,23 +6,17 @@ import MyAside from "./layout/aside"
 import MyMain from "./layout/main"
 import {Pokemon} from "./types";
 import {AppContext, ModeContext} from "./context";
-import {urlArray} from "./utils";
+import {urlArray} from "./utils/functions";
 import {ThemeProvider} from "styled-components"
 import {theme} from "./theme";
-
 
 export default () => {
 
     const [list, setList] = useState([{ picture:"", name:"", id:0 }])
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true");
 
     useEffect(() => {
         const getDetailsData = async() => {
-
-            if(localStorage.getItem("darkMode")){
-                console.log(Boolean(localStorage.getItem("darkMode")))
-                setDarkMode(Boolean(localStorage.getItem("darkMode")))
-            }
 
             if(localStorage.getItem("list")){
                 setList(JSON.parse(localStorage.getItem("list") || "{}"))
@@ -42,7 +36,6 @@ export default () => {
 
             setList(payload)
             localStorage.setItem("list", JSON.stringify(payload))
-            localStorage.setItem("darkMode", String(darkMode))
         }
 
         getDetailsData().then(console.log)

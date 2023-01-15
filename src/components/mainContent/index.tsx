@@ -2,6 +2,7 @@ import "./style.css"
 import {useContext} from "react"
 import {MainProps} from "../../types"
 import {AppContext} from "../../context";
+import {capitalize} from "../../utils/functions";
 
 export default (props: MainProps) => {
 
@@ -20,7 +21,7 @@ export default (props: MainProps) => {
                     {pokemonList.map(e => {
                         return <li key={e.id}>
                                     <img src={e.picture} alt={`Picture of ${e.name}`}/>
-                                    <span>{`#${e.id} - ${e.name}`}</span>
+                                    <span>{`#${e.id} - ${capitalize(e.name)}`}</span>
                                 </li>
                     })}
                 </ul>

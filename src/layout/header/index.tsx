@@ -8,8 +8,8 @@ export default () => {
     const {darkMode, setDarkMode} = useContext(ModeContext)
 
     const handleDarkMode = () => {
+        localStorage.setItem("darkMode", JSON.stringify(!darkMode))
         setDarkMode(!darkMode)
-        localStorage.setItem("darkMode", String(!darkMode))
     }
 
     return(

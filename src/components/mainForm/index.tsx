@@ -11,7 +11,7 @@ export default () => {
     const filterByName = () => {
         const data = JSON.parse(localStorage.getItem("list") || "{}")
         const filteredData = data.filter((pokemon: { name: string | string[]; }) => pokemon.name.includes(currentName.toLowerCase()))
-        setSelected({...selected, id:0, isSelected:false})
+        setSelected({...selected, id:selected.id, isSelected:false})
 
         if(filteredData.length > 0) {
             setList(filteredData)

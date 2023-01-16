@@ -4,6 +4,8 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width:100%;
+  gap:20px;
+  align-items: center;
   background: ${props => props.theme.mainColor};
   color: ${props => props.theme.textColor}
 `
@@ -28,5 +30,14 @@ export const List_Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`
+
+export const Button_Container = styled.div`
+  display: flex;
+  gap:10px;
+`
+
+export const Button = styled.button`
+  cursor:pointer
 `
 

@@ -1,32 +1,31 @@
-import {Container, Sub_Container, List, List_Container} from "./style"
+import {Container, Sub_Container, List, List_Container, Button, Button_Container} from "./style"
 import {useContext} from "react";
 import {AppContext} from "../../context";
 import {capitalize} from "../../utils/functions";
-import {Simulate} from "react-dom/test-utils";
-import select = Simulate.select;
 
 export default () => {
 
     const {list, selected, setSelected} = useContext(AppContext)
     const pokemon = list.filter(pokemon => pokemon.id === selected.id)[0]
+    const lastPokemon = list[list.length - 1].id === selected.id
+    const firstPokemon = list[0].id === selected.id
 
     const displayNextPokemon = () => {
-        const totalLength = JSON.parse(localStorage.getItem("list") || "{}").length
-        if(selected.id < totalLength) setSelected({...selected, id:selected.id + 1, isSelected:true})
-        return
+        const currentIndex = list.findIndex(pokemon => pokemon.id === selected.id)
+        setSelected({...selected, id:list[currentIndex + 1].id, isSelected:true})
     }
 
     const displayPreviousPokemon = () => {
-        if(selected.id > 1) setSelected({...selected, id:selected.id - 1, isSelected:true})
-        return
+        const currentIndex = list.findIndex(pokemon => pokemon.id === selected.id)
+        setSelected({...selected, id:list[currentIndex - 1].id, isSelected:true})
     }
 
     return(
         <Container>
             <div>
-                <button onClick={() => setSelected({...selected, id:0, isSelected:false})}>
+                <Button onClick={() => setSelected({...selected, id:0, isSelected:false})}>
                     Main Page
-                </button>
+                </Button>
             </div>
 
             <Sub_Container>
@@ -54,10 +53,10 @@ export default () => {
                     </List>
                 </List_Container>
             </Sub_Container>
-            <div>
-                <button onClick={displayPreviousPokemon}>Previous</button>
-                <button onClick={displayNextPokemon}>Next</button>
-            </div>
+            <Button_Container>
+                <Button onClick={displayPreviousPokemon} disabled={firstPokemon}>Previous</Button>
+                <Button onClick={displayNextPokemon} disabled={lastPokemon}>Next</Button>
+            </Button_Container>
         </Container>
     )
 }

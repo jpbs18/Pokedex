@@ -10,15 +10,15 @@ export default () => {
     const {types, setList, setNoMatch, setSelected, selected} = useContext(AppContext)
 
     const filterByGeneration = (data: number[]) => {
+        setSelected({...selected, id:0, isSelected:false})
         const pokemonList = JSON.parse(localStorage.getItem("list") || "{}")
         setList(pokemonList.slice(data[0], data[1]))
-        setSelected({...selected, id:0, isSelected:false})
     }
 
     const filterByType = (data: string) => {
+        setSelected({...selected, id:0, isSelected:false})
         const pokemonList = JSON.parse(localStorage.getItem("list") || "{}")
         const filteredData = pokemonList.filter((pokemon: Pokemon) => pokemon.type === data)
-        setSelected({...selected, id:0, isSelected:false})
 
         if(filteredData.length > 0) {
             setList(filteredData)

@@ -22,11 +22,11 @@ export default () => {
 
     return(
         <Container>
-            <div>
+            <Button_Container>
                 <Button onClick={() => setSelected({...selected, id:0, isSelected:false})}>
                     Main Page
                 </Button>
-            </div>
+            </Button_Container>
 
             <Sub_Container>
                 <List_Container>
@@ -53,6 +53,7 @@ export default () => {
                     </List>
                 </List_Container>
             </Sub_Container>
+
             <Button_Container>
                 <Button onClick={displayPreviousPokemon} disabled={firstPokemon}>Previous</Button>
                 <Button onClick={displayNextPokemon} disabled={lastPokemon}>Next</Button>

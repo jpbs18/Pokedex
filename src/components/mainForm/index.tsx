@@ -7,6 +7,8 @@ export default () => {
 
     const {list, setList, setNoMatch, noMatch, selected, setSelected} = useContext(AppContext)
     const [currentName, setCurrentName] = useState("");
+    const conditionsRequired = list.length !== getTotalLength() && !noMatch
+
 
     const filterByName = () => {
         const data = JSON.parse(localStorage.getItem("list") || "{}")
@@ -30,8 +32,8 @@ export default () => {
 
     return(
         <Container className="Form-Container">
-            {(list.length === getTotalLength() || noMatch) ||
-                <span className="Counter">{`Found ${list.length}/${getTotalLength()} results`}</span>
+            {conditionsRequired ?
+                <span className="Counter">{`Found ${list.length}/${getTotalLength()} results`}</span> : null
             }
             <Form className="Label-Container">
                 <label>Search by name:

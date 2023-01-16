@@ -9,9 +9,9 @@ export default () => {
 
     const {list, selected, setSelected} = useContext(AppContext)
     const pokemon = list.filter(pokemon => pokemon.id === selected.id)[0]
-    const totalLength = JSON.parse(localStorage.getItem("list") || "{}").length
 
     const displayNextPokemon = () => {
+        const totalLength = JSON.parse(localStorage.getItem("list") || "{}").length
         if(selected.id < totalLength) setSelected({...selected, id:selected.id + 1, isSelected:true})
         return
     }

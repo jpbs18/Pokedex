@@ -4,7 +4,7 @@ export const Container = styled.div`
   text-align: center;
   background: ${props => props.theme.mainColor};
   color: ${props => props.theme.textColor};
-  padding:10px;
+  padding-top:10px;
 `
 
 export const List = styled.ul`
@@ -15,7 +15,7 @@ export const List = styled.ul`
   max-height:100%;
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap:8px;
+  gap:5px;
 
   @media only screen and (min-width:1000px){
       display: grid;

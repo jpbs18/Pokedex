@@ -17,7 +17,7 @@ export const theme = {
         asideColor:"#76a5b1",
         itemColor:"#cbe0e0",
         mainColor:"#cbe0e0",
-        formColor:"#cbe0e0",
+        formColor:"#9ddbe3",
         footerColor:"#467689",
         textColor:"black",
         secondTextColor:"white",

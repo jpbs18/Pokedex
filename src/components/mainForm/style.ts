@@ -4,10 +4,9 @@ export const Container = styled.div`
   display:flex;
   justify-content:space-around;
   align-items: center;
-  background: ${props => props.theme.mainColor};
+  background: ${props => props.theme.formColor};
   color: ${props => props.theme.textColor};
   gap:3px;
-  background: ${props => props.theme.formColor};
 `
 
 export const Button = styled.button`

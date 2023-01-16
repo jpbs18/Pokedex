@@ -1,7 +1,8 @@
-import {Container, Sub_Container, List, List_Container, Button, Button_Container} from "./style"
+import {Container, Table, Table_Container, Table_List, Button, Button_Container, Img, Heading} from "./style"
 import {useContext} from "react";
 import {AppContext} from "../../context";
 import {capitalize} from "../../utils/functions";
+import {statsList} from "../../utils/variables";
 
 export default () => {
 
@@ -22,42 +23,41 @@ export default () => {
 
     return(
         <Container>
-            <Button_Container>
-                <Button onClick={() => setSelected({...selected, id:0, isSelected:false})}>
-                    Main Page
-                </Button>
-            </Button_Container>
-
-            <Sub_Container>
-                <List_Container>
-                    <List>
-                        <li><p>{`ID: #${pokemon.id}`}</p></li>
-                        <li><p>{`Type: ${capitalize(pokemon.type)}`}</p></li>
-                        <li><p>{`Weight: ${pokemon.weight}`}</p></li>
-                        <li><p>{`Height: ${pokemon.height}`}</p></li>
-                    </List>
-                </List_Container>
-
                 <div>
-                    <h1>{`You chose ${capitalize(pokemon.name)}!`}</h1>
-                    <img src={`${pokemon.picture}`} alt={`Picture of ${pokemon.name}`}/>
+                    <Heading>{`You chose ${capitalize(pokemon.name)}!`}</Heading>
+                    <Img src={`${pokemon.picture}`} alt={`Picture of ${pokemon.name}`}/>
                 </div>
 
-                <List_Container>
-                    <List>
-                        {pokemon.stats.map((elem,i) => {
-                            return <li key={`${elem}-${i}`}>
-                                <p>{capitalize(elem.stat.name)}: {elem["base_stat"]}</p>
-                            </li>
-                        })}
-                    </List>
-                </List_Container>
-            </Sub_Container>
+                <Table_Container>
+                    <Table>
+                        <thead>
+                            <td width="50%">Stats</td>
+                            <td width="50%">Value</td>
+                        </thead>
+                        <tbody>
+                            <td>
+                                <Table_List>
+                                    {statsList.map((stat,i) => <li key={i+10}><tr>{stat}</tr></li>)}
+                                </Table_List>
+                            </td>
+                            <td>
+                                <Table_List>
+                                    <li><tr>{pokemon.id}</tr></li>
+                                    <li><tr>{pokemon.type}</tr></li>
+                                    <li><tr>{pokemon.height}</tr></li>
+                                    <li><tr>{pokemon.weight}</tr></li>
+                                    {pokemon.stats.map((elem,i) => <li key={i+20}><tr>{elem["base_stat"]}</tr></li>)}
+                                </Table_List>
+                            </td>
+                        </tbody>
+                    </Table>
+                </Table_Container>
 
-            <Button_Container>
-                <Button onClick={displayPreviousPokemon} disabled={firstPokemon}>Previous</Button>
-                <Button onClick={displayNextPokemon} disabled={lastPokemon}>Next</Button>
-            </Button_Container>
+                <Button_Container>
+                    <Button onClick={displayPreviousPokemon} disabled={firstPokemon}>Previous</Button>
+                    <Button onClick={displayNextPokemon} disabled={lastPokemon}>Next</Button>
+                    <Button onClick={() => setSelected({...selected, id:0, isSelected:false})}>Main Page</Button>
+                </Button_Container>
         </Container>
     )
 }

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import {MyHeader, MyMain, MyAside,MyFooter} from "./layout"
 import {AppContext, ModeContext} from "./context";
-import {urlArray} from "./utils/functions";
+import {capitalize, urlArray} from "./utils/functions";
 import {typeUrl} from "./utils/variables"
 import {ThemeProvider} from "styled-components"
 import {theme} from "./theme";

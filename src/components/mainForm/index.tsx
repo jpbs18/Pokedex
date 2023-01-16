@@ -5,12 +5,13 @@ import {getTotalLength} from "../../utils/functions";
 
 export default () => {
 
-    const {list, setList, setNoMatch, noMatch} = useContext(AppContext)
+    const {list, setList, setNoMatch, noMatch, selected, setSelected} = useContext(AppContext)
     const [currentName, setCurrentName] = useState("");
 
     const filterByName = () => {
         const data = JSON.parse(localStorage.getItem("list") || "{}")
         const filteredData = data.filter((pokemon: { name: string | string[]; }) => pokemon.name.includes(currentName.toLowerCase()))
+        setSelected({...selected, id:0, isSelected:false})
 
         if(filteredData.length > 0) {
             setList(filteredData)
@@ -23,6 +24,7 @@ export default () => {
         setCurrentName("");
         setNoMatch(false)
         setList(JSON.parse(localStorage.getItem("list") || "{}"))
+        setSelected({...selected, id:0, isSelected:false})
     }
 
 

@@ -9,10 +9,16 @@ import {theme} from "./theme";
 
 export default () => {
 
-    const [list, setList] = useState([{ picture:"", name:"", id:0, type:"" }])
+    const [list, setList] = useState([{picture:"", name:"", id:0, type:"", weight:0, height:0,
+        stats:[
+            {["base_stat"]:0,
+            effort:0,
+            stat:[{name:"", url:""}]}
+        ]}])
     const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true");
     const [types, setTypes] = useState([])
     const [noMatch, setNoMatch] = useState(false)
+    const [selected, setSelected] = useState({id:0, isSelected:false})
 
     useEffect(() => {
 
@@ -39,7 +45,10 @@ export default () => {
                 picture: data.sprites.other["official-artwork"].front_default,
                 name: data.name,
                 id: data.id,
-                type: data.types[0].type.name
+                type: data.types[0].type.name,
+                height: data.height,
+                weight: data.weight,
+                stats: data.stats
             }))
 
             await typesData()
@@ -55,7 +64,7 @@ export default () => {
           <ThemeProvider theme={darkMode ? theme.darkMode : theme.lightMode}>
           <ModeContext.Provider value={{darkMode,setDarkMode}}>
             <MyHeader/>
-            <AppContext.Provider value={{list, setList, types, noMatch, setNoMatch}}>
+            <AppContext.Provider value={{list, setList, types, noMatch, setNoMatch, selected, setSelected}}>
                 <MyAside/>
                 <MyMain/>
             </AppContext.Provider>

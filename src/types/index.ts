@@ -4,7 +4,17 @@ export interface Pokemon{
     picture:string,
     name:string,
     id:number,
-    type:string
+    type:string,
+    weight:number,
+    height:number,
+    stats:{
+        ["base_stat"]: number,
+        effort:number,
+        stat:{
+            name:string,
+            url:string
+        }[]
+    }[]
 }
 
 export interface Type{
@@ -17,7 +27,9 @@ export interface AppContextType{
     setList:Dispatch<SetStateAction<Pokemon[]>>,
     types:Type[],
     noMatch:boolean,
-    setNoMatch:Dispatch<SetStateAction<boolean>>
+    setNoMatch:Dispatch<SetStateAction<boolean>>,
+    selected:{id:number, isSelected:boolean},
+    setSelected:Dispatch<SetStateAction<{id:number, isSelected:boolean}>>
 }
 
 export interface ModeContextType{

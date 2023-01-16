@@ -13,7 +13,7 @@ export default () => {
         stats:[
             {["base_stat"]:0,
             effort:0,
-            stat:[{name:"", url:""}]}
+            stat:{name:"", url:""}}
         ]}])
     const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true");
     const [types, setTypes] = useState([])

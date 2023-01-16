@@ -12,10 +12,10 @@ export const AppContext= createContext<AppContextType>({
         stats:[{
             ["base_stat"]: 0,
             effort: 0,
-            stat:[{
+            stat:{
                 name:"",
                 url:""
-            }]
+            }
         }
         ]
     }],

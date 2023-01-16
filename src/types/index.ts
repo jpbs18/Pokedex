@@ -1,5 +1,10 @@
 import {Dispatch, SetStateAction} from "react";
 
+interface Stat{
+    name:string,
+    url:string
+}
+
 export interface Pokemon{
     picture:string,
     name:string,
@@ -10,10 +15,7 @@ export interface Pokemon{
     stats:{
         ["base_stat"]: number,
         effort:number,
-        stat:{
-            name:string,
-            url:string
-        }[]
+        stat:Stat
     }[]
 }
 

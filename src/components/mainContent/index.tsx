@@ -13,11 +13,12 @@ export default () => {
     }
 
     return(
-        <>{selected.isSelected ?
-            <MyPokemon />
-           :
         <Container className="Content-Container">
-            {noMatch ?
+            {selected.isSelected ?
+            <MyPokemon />
+            :
+           <>
+           {noMatch ?
                 <div className="NotFound-Container">
                     <h1>Sorry, we don't have what you're looking for!</h1>
                     <img src={`${process.env.PUBLIC_URL}/pokemon_fainted.webp`} alt={"Pokemon not found!"}
@@ -33,7 +34,8 @@ export default () => {
                     })}
                 </List>
             }
+            </>
+        }
         </Container>
-        }</>
     )
 }

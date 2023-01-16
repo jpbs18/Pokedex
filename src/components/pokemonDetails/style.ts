@@ -14,10 +14,10 @@ export const Container = styled.div`
 export const Table = styled.table`
   width:40%;
   height:30%;
-  border: 1px solid black;
+  border: 1px solid ${props => props.theme.textColor};
   
   td{
-    border: 1px solid black;
+    border: 1px solid ${props => props.theme.textColor};
     padding:5px;
   }
 `
@@ -45,7 +45,7 @@ export const Button_Container = styled.div`
 
 export const Button = styled.button`
   cursor:pointer;
-  height:80%;
+  height:90%;
 `
 
 export const Heading = styled.h2`

@@ -33,7 +33,8 @@ export default () => {
             }
             <Form className="Label-Container">
                 <label>Search by name:
-                    <input type="text" value={currentName} onChange={e => setCurrentName(e.target.value)}/>
+                    <input style={{height:"18px"}} type="text" value={currentName}
+                           onChange={e => setCurrentName(e.target.value)}/>
                 </label>
                 <Button onClick={filterByName}>🔍</Button>
                 <Button onClick={cleanFilter}>🌊</Button>

@@ -2,11 +2,11 @@ export const theme = {
 
     darkMode:{
         headerColor:"#b41111",
-        mainColor:"black",
-        formColor:"#3b3a3a",
+        mainColor:"#3b3a3a",
+        formColor:"#8c3e3e",
         itemColor:"#808080",
         asideColor:"#808080",
-        footerColor:"#3b3a3a",
+        footerColor:"#571818",
         textColor:"white",
         secondTextColor:"white",
         cardHover:"#912323"

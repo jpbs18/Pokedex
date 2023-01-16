@@ -7,7 +7,6 @@ import {MyPokemon} from "../../components/index"
 export default () => {
 
     const {list, noMatch, selected, setSelected} = useContext(AppContext)
-
     const selectPokemon = (id: number) => {
         setSelected({...selected, id: id, isSelected: true})
     }

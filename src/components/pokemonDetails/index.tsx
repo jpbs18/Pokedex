@@ -46,7 +46,8 @@ export default () => {
                                     <li><tr>{pokemon.type}</tr></li>
                                     <li><tr>{pokemon.height}</tr></li>
                                     <li><tr>{pokemon.weight}</tr></li>
-                                    {pokemon.stats.map((elem,i) => <li key={i+20}><tr>{elem["base_stat"]}</tr></li>)}
+                                    {pokemon.stats.map((elem,i) =>
+                                        <li key={i+20}><tr>{elem["base_stat"]}</tr></li>)}
                                 </Table_List>
                             </td>
                         </tbody>

@@ -16,6 +16,5 @@ export const Button = styled.button`
 export const Form = styled.div`
   display: flex;
   align-items: center;
-  height:50%;
   gap:2px;
 `

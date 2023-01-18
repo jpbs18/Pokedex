@@ -62,6 +62,15 @@ export default () => {
             <Section>
                 <h3>Contact me</h3>
                 <Article>
+                    <p>
+                        This project is far from being finished, so feel free to contact me and give some pointers
+                    about good practices and new ideas and tools.
+                    </p>
+
+                    <p>
+                        You can reach to me on Linkedin or check other projects that I have at my GitHub account!
+                        Just click on the following icons :)
+                    </p>
                     <a href="https://www.linkedin.com/in/jo%C3%A3o-santos21/" target="blank">
                         <Icon src={`${process.env.PUBLIC_URL}/linkedin.webp`} alt="linkedin logo" width={"10%"}/>
                     </a>

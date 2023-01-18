@@ -18,6 +18,7 @@ export const Section = styled.section`
 export const Article = styled.article`
   display:flex;
   flex-direction: column;
+  justify-content: center;
   
   a{
     color: ${props => props.theme.textColor};

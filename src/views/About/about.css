@@ -1,0 +1,43 @@
+.About-Container{
+    overflow: hidden;
+}
+
+@media only screen and (max-width:420px){
+    .About-Container{
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 10% 85% 5%;
+        grid-template-areas:
+        "h"
+        "m"
+        "f"
+    ;
+    }
+}
+
+@media only screen and (min-width:420px){
+    .About-Container{
+        height: 100vh;
+        display: grid;
+        grid-template-rows: 12% 83% 5%;
+        grid-template-columns: 1fr;
+        grid-template-areas:
+        "h"
+        "m"
+        "f"
+    ;
+    }
+}
+
+.Header-Container{
+    grid-area: h;
+}
+
+
+.Main-Container{
+    grid-area: m;
+}
+
+.Footer-Container{
+    grid-area: f;
+}

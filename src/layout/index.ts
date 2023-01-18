@@ -1,6 +1,6 @@
-import MyHeader from "./header"
-import MyAside from "./aside"
-import MyMain from "./main"
-import MyFooter from "./footer"
+import MyHeader from "./Header"
+import MyAside from "./Aside"
+import MyMain from "./Main"
+import MyFooter from "./Footer"
 
 export {MyMain, MyAside, MyFooter, MyHeader}

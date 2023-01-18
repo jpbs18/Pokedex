@@ -1,7 +1,7 @@
-import React, {useContext, useState} from "react";
-import {AppContext} from "../../context";
+import {useContext, useState} from "react";
+import {AppContext} from "../../../context";
 import {Container, Button, Form} from "./style"
-import {getTotalLength} from "../../utils/functions";
+import {getTotalLength} from "../../../utils/functions";
 
 export default () => {
 

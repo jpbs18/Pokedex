@@ -1,9 +1,9 @@
 import {useContext} from "react"
-import {AppContext} from "../../context";
-import {capitalize} from "../../utils/functions";
+import {AppContext} from "../../../context";
+import {capitalize} from "../../../utils/functions";
 import {Container, List, Item, Img, Type, Details} from "./style"
-import {MyPokemon, MySpinner} from "../../components/index"
-import {typeColors} from "../../utils/variables";
+import {MyPokemon, MySpinner} from "../../index"
+import {typeColors} from "../../../utils/variables";
 
 export default () => {
 

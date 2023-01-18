@@ -22,12 +22,12 @@ export const Table = styled.table`
   }
 `
 
-export const Table_Container = styled.div`
+export const TableContainer = styled.div`
   display: flex;
   justify-content: center;
 `
 
-export const Table_List = styled.ul`
+export const TableList = styled.ul`
   list-style: none;
   padding:0;
   margin:0;
@@ -37,7 +37,7 @@ export const Table_List = styled.ul`
   align-items: center;
 `
 
-export const Button_Container = styled.div`
+export const ButtonContainer = styled.div`
   display: flex;
   gap:10px;
   justify-content: center;
@@ -66,10 +66,6 @@ export const Img = styled.img`
   @media only screen and (max-width:600px){
     width:340px;
     height:280px;
-  } 
-  
-  @media only screen and (max-width:420px){
-  
-}
+  }
 `
 

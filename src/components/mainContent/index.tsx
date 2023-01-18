@@ -1,8 +1,9 @@
 import {useContext} from "react"
 import {AppContext} from "../../context";
 import {capitalize} from "../../utils/functions";
-import {Container, List, Item, Img} from "./style"
+import {Container, List, Item, Img, Type, Details} from "./style"
 import {MyPokemon} from "../../components/index"
+import {typeColors} from "../../utils/variables";
 
 export default () => {
 
@@ -10,6 +11,7 @@ export default () => {
     const selectPokemon = (id: number) => {
         setSelected({...selected, id: id, isSelected: true})
     }
+    const color = (pokemonType:string) =>  Object.entries(typeColors).find(cl => cl.includes(pokemonType))?.[1]
 
     return(
         <Container className="Content-Container">
@@ -28,7 +30,10 @@ export default () => {
                     {list.map(pokemon => {
                         return <Item key={pokemon.id} onClick={() => selectPokemon(pokemon.id)}>
                                     <Img src={pokemon.picture} alt={`Picture of ${pokemon.name}`} loading="lazy"/>
-                                    <span>{`#${pokemon.id} - ${capitalize(pokemon.name)}`}</span>
+                                    <Details>
+                                        <div>{`#${pokemon.id} - ${capitalize(pokemon.name)}`}</div>
+                                        <Type color={color(pokemon.type)}>{capitalize(pokemon.type)}</Type>
+                                    </Details>
                                 </Item>
                     })}
                 </List>

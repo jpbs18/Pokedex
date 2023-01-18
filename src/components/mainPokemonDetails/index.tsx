@@ -1,4 +1,4 @@
-import {Container, Table, Table_Container, Table_List, Button, Button_Container, Img, Heading} from "./style"
+import {Container, Table, TableContainer, TableList, Button, ButtonContainer, Img, Heading} from "./style"
 import {useContext} from "react";
 import {AppContext} from "../../context";
 import {capitalize} from "../../utils/functions";
@@ -28,7 +28,7 @@ export default () => {
                     <Img src={`${pokemon.picture}`} alt={`Picture of ${pokemon.name}`}/>
                 </div>
 
-                <Table_Container>
+                <TableContainer>
                     <Table>
                         <thead>
                             <td width="50%">Stats</td>
@@ -36,29 +36,29 @@ export default () => {
                         </thead>
                         <tbody>
                             <td>
-                                <Table_List>
+                                <TableList>
                                     {statsList.map((stat,i) => <li key={i+10}><tr>{stat}</tr></li>)}
-                                </Table_List>
+                                </TableList>
                             </td>
                             <td>
-                                <Table_List>
+                                <TableList>
                                     <li><tr>{pokemon.id}</tr></li>
-                                    <li><tr>{pokemon.type}</tr></li>
+                                    <li><tr>{capitalize(pokemon.type)}</tr></li>
                                     <li><tr>{pokemon.height}</tr></li>
                                     <li><tr>{pokemon.weight}</tr></li>
                                     {pokemon.stats.map((elem,i) =>
                                         <li key={i+20}><tr>{elem["base_stat"]}</tr></li>)}
-                                </Table_List>
+                                </TableList>
                             </td>
                         </tbody>
                     </Table>
-                </Table_Container>
+                </TableContainer>
 
-                <Button_Container>
+                <ButtonContainer>
                     <Button onClick={displayPreviousPokemon} disabled={firstPokemon}>Previous</Button>
                     <Button onClick={displayNextPokemon} disabled={lastPokemon}>Next</Button>
                     <Button onClick={() => setSelected({...selected, id:0, isSelected:false})}>Main Page</Button>
-                </Button_Container>
+                </ButtonContainer>
         </Container>
     )
 }

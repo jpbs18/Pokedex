@@ -55,4 +55,19 @@ export const Img = styled.img`
   padding:10px;
 `
 
+export const Details = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:100px;
+  gap:10px;
+`
+
+export const Type = styled.div`
+  background: ${props => props.color};
+  border-radius: 10px;
+  border: 1px solid black;
+  width:70%;
+`
+
 

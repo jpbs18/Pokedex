@@ -3,16 +3,17 @@ import styled from "styled-components"
 export const Container = styled.header`
   background: ${props => props.theme.headerColor};
   display: flex;
-  justify-content:center;
+  justify-content:space-between;
   align-items: center;
-  position:relative;
   color: ${props => props.theme.textColor}
 `
+export const List = styled.ul`
+  list-style: none;
+  padding:0;
+`
 export const Button = styled.button`
-  background: transparent;
+  background:transparent;
   border:none;
-  position:absolute;
-  right:0;
   cursor:pointer;
 `
 

@@ -10,11 +10,12 @@ import { ModeContext, AppContext } from "./context";
 export default () => {
 
     const [list, setList] = useState([{picture:"", name:"", id:0, type:"", weight:0, height:0,
-        stats:[
-            {["base_stat"]:0,
+        stats:[{
+                ["base_stat"]:0,
                 effort:0,
-                stat:{name:"", url:""}}
-        ]}])
+                stat:{ name:"", url:"" }
+               }]
+            }])
 
     const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true");
     const [types, setTypes] = useState([])

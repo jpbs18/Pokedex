@@ -2,7 +2,7 @@ import {useContext} from "react"
 import {AppContext} from "../../context";
 import {capitalize} from "../../utils/functions";
 import {Container, List, Item, Img, Type, Details} from "./style"
-import {MyPokemon} from "../../components/index"
+import {MyPokemon, MySpinner} from "../../components/index"
 import {typeColors} from "../../utils/variables";
 
 export default () => {
@@ -27,7 +27,10 @@ export default () => {
                 </div>
                 :
                 <List className="Content-List">
-                    {list.map(pokemon => {
+                    {list[0].name === "" ?
+                        <MySpinner/>
+                        :
+                        list.map(pokemon => {
                         return <Item key={pokemon.id} onClick={() => selectPokemon(pokemon.id)}>
                                     <Img src={pokemon.picture} alt={`Picture of ${pokemon.name}`} loading="lazy"/>
                                     <Details>

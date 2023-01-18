@@ -1,7 +1,6 @@
 import {Home, About} from "./views"
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {typeUrl} from "./utils/variables";
 import {urlArray} from "./utils/functions";
 import {theme} from "./theme";
 import {ThemeProvider} from "styled-components";
@@ -19,15 +18,15 @@ export default () => {
             }])
 
     const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true");
-    const [types, setTypes] = useState([""])
+    const [types, setTypes] = useState(["Loading..."])
     const [noMatch, setNoMatch] = useState(false)
     const [selected, setSelected] = useState({id:0, isSelected:false})
 
     useEffect(() => {
 
         if(localStorage.getItem("list") && localStorage.getItem("types")){
-            setList(JSON.parse(localStorage.getItem("list") || "{}"))
-            setTypes(JSON.parse(localStorage.getItem("types") || "{}"))
+            setList(JSON.parse(localStorage.getItem("list")!))
+            setTypes(JSON.parse(localStorage.getItem("types")!))
             return
         }
         const getDetailsData = async() => {

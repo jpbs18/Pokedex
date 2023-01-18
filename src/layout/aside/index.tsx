@@ -11,13 +11,13 @@ export default () => {
 
     const filterByGeneration = (data: number[]) => {
         setSelected({...selected, id:0, isSelected:false})
-        const pokemonList = JSON.parse(localStorage.getItem("list") || "{}")
+        const pokemonList = JSON.parse(localStorage.getItem("list")!)
         setList(pokemonList.slice(data[0], data[1]))
     }
 
     const filterByType = (type: string) => {
         setSelected({...selected, id:0, isSelected:false})
-        const pokemonList = JSON.parse(localStorage.getItem("list") || "{}")
+        const pokemonList = JSON.parse(localStorage.getItem("list")!)
         const filteredData = pokemonList.filter((pokemon: Pokemon) => pokemon.type === type)
 
         if(filteredData.length > 0) {

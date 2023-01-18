@@ -9,7 +9,7 @@ export default () => {
     const [currentName, setCurrentName] = useState("");
     const conditionsRequired = list.length !== getTotalLength() && !noMatch
     const filterByName = () => {
-        const data = JSON.parse(localStorage.getItem("list") || "{}")
+        const data = JSON.parse(localStorage.getItem("list")!)
         const filteredData = data.filter((pokemon: { name: string | string[]; }) => pokemon.name.includes(currentName.toLowerCase()))
         setSelected({...selected, id:selected.id, isSelected:false})
 
@@ -22,7 +22,7 @@ export default () => {
     const cleanFilter = () => {
         setCurrentName("");
         setNoMatch(false)
-        setList(JSON.parse(localStorage.getItem("list") || "{}"))
+        setList(JSON.parse(localStorage.getItem("list")!))
         setSelected({...selected, id:0, isSelected:false})
     }
 

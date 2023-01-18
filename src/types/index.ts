@@ -19,15 +19,11 @@ export interface Pokemon{
     }[]
 }
 
-export interface Type{
-    name:string,
-    url:string
-}
 
 export interface AppContextType{
     list:Pokemon[],
     setList:Dispatch<SetStateAction<Pokemon[]>>,
-    types:Type[],
+    types:string[],
     noMatch:boolean,
     setNoMatch:Dispatch<SetStateAction<boolean>>,
     selected:{id:number, isSelected:boolean},

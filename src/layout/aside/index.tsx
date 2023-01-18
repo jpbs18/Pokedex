@@ -15,10 +15,10 @@ export default () => {
         setList(pokemonList.slice(data[0], data[1]))
     }
 
-    const filterByType = (data: string) => {
+    const filterByType = (type: string) => {
         setSelected({...selected, id:0, isSelected:false})
         const pokemonList = JSON.parse(localStorage.getItem("list") || "{}")
-        const filteredData = pokemonList.filter((pokemon: Pokemon) => pokemon.type === data)
+        const filteredData = pokemonList.filter((pokemon: Pokemon) => pokemon.type === type)
 
         if(filteredData.length > 0) {
             setList(filteredData)
@@ -44,9 +44,9 @@ export default () => {
             <ListContainer>
                 <Title>Search by type:</Title>
                 <List>
-                    {types.map((type,i) => {
-                        return <Item key={`Type-${type.name}-${i}`}>
-                            <Button onClick={() => filterByType(type.name)}>{capitalize(type.name)}</Button>
+                    {types.map((type: string, i: number) => {
+                        return <Item key={`Type-${type}-${i}`}>
+                            <Button onClick={() => filterByType(type)}>{capitalize(type)}</Button>
                         </Item>
                     })}
                 </List>

@@ -6,6 +6,7 @@ import {urlArray} from "./utils/functions";
 import {theme} from "./theme";
 import {ThemeProvider} from "styled-components";
 import { ModeContext, AppContext } from "./context";
+import {Pokemon} from "./types";
 
 export default () => {
 
@@ -18,7 +19,7 @@ export default () => {
             }])
 
     const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true");
-    const [types, setTypes] = useState([])
+    const [types, setTypes] = useState([""])
     const [noMatch, setNoMatch] = useState(false)
     const [selected, setSelected] = useState({id:0, isSelected:false})
 
@@ -30,13 +31,6 @@ export default () => {
             return
         }
         const getDetailsData = async() => {
-
-            const typesData = async() => {
-                const response = await fetch(typeUrl)
-                const json = await response.json()
-                setTypes(json.results)
-                localStorage.setItem("types", JSON.stringify(json.results))
-            }
 
             const detailsData = urlArray.map(async (element: any) => {
                 const response = await fetch(element)
@@ -53,9 +47,10 @@ export default () => {
                 stats: data.stats
             }))
 
-            await typesData()
             setList(payload)
             localStorage.setItem("list", JSON.stringify(payload))
+            setTypes([...new Set(payload.map((pokemon : Pokemon)=> pokemon.type))])
+            localStorage.setItem("types", JSON.stringify([...new Set(payload.map((pokemon : Pokemon)=> pokemon.type))]))
         }
 
         getDetailsData().then(console.log)

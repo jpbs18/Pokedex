@@ -2,6 +2,7 @@ import "./style"
 import {useContext} from "react";
 import {ModeContext} from "../../context";
 import {Button, Container} from "./style"
+import {Link} from "react-router-dom"
 
 export default () => {
 
@@ -13,6 +14,10 @@ export default () => {
 
     return(
         <Container className="Header-Container">
+            <nav>
+                <span><Link to="/">Home</Link></span>
+                <span><Link to="/about">About</Link></span>
+            </nav>
             <img src={`${process.env.PUBLIC_URL}/pokemon_logo.webp`} alt="Pokemon logo" width={"23%"} height={"85%"}/>
             <Button onClick={handleDarkMode}>{darkMode ? "🌕" : "🌑"}</Button>
         </Container>

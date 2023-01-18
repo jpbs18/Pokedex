@@ -1,9 +1,9 @@
 import {Container, List, Item, Title, Button, ListContainer} from "./style"
-import {generations} from "../../utils/variables";
-import {AppContext} from "../../context";
-import {useContext} from "react";
-import {capitalize} from "../../utils/functions";
-import {Pokemon} from "../../types";
+import {generations} from "../../utils/variables"
+import {AppContext} from "../../context"
+import {useContext} from "react"
+import {capitalize} from "../../utils/functions"
+import {Pokemon} from "../../types"
 
 export default () => {
 

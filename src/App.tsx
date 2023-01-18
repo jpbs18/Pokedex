@@ -1,20 +1,21 @@
-import React, {useEffect, useState} from 'react';
-import './App.css';
-import {MyHeader, MyMain, MyAside,MyFooter} from "./layout"
-import {AppContext, ModeContext} from "./context";
-import {capitalize, urlArray} from "./utils/functions";
-import {typeUrl} from "./utils/variables"
-import {ThemeProvider} from "styled-components"
+import {Home, About} from "./views"
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {useEffect, useState} from "react";
+import {typeUrl} from "./utils/variables";
+import {urlArray} from "./utils/functions";
 import {theme} from "./theme";
+import {ThemeProvider} from "styled-components";
+import { ModeContext, AppContext } from "./context";
 
 export default () => {
 
     const [list, setList] = useState([{picture:"", name:"", id:0, type:"", weight:0, height:0,
         stats:[
             {["base_stat"]:0,
-            effort:0,
-            stat:{name:"", url:""}}
+                effort:0,
+                stat:{name:"", url:""}}
         ]}])
+
     const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true");
     const [types, setTypes] = useState([])
     const [noMatch, setNoMatch] = useState(false)
@@ -59,20 +60,20 @@ export default () => {
         getDetailsData().then(console.log)
     },[])
 
-  return (
-      <div className="App-Container">
-          <ThemeProvider theme={darkMode ? theme.darkMode : theme.lightMode}>
-          <ModeContext.Provider value={{darkMode,setDarkMode}}>
-            <MyHeader/>
-            <AppContext.Provider value={{list, setList, types, noMatch, setNoMatch, selected, setSelected}}>
-                <MyAside/>
-                <MyMain/>
-            </AppContext.Provider>
-            <MyFooter/>
-          </ModeContext.Provider>
-          </ThemeProvider>
-      </div>
-  );
-}
 
+    return(
+        <ThemeProvider theme={darkMode ? theme.darkMode : theme.lightMode}>
+            <ModeContext.Provider value={{darkMode,setDarkMode}}>
+                <AppContext.Provider value={{list, setList, types, noMatch, setNoMatch, selected, setSelected}}>
+                    <BrowserRouter>
+                        <Routes>
+                            <Route path="/" element={<Home/>}></Route>
+                            <Route path="/about" element={<About/>}></Route>
+                        </Routes>
+                    </BrowserRouter>
+                </AppContext.Provider>
+            </ModeContext.Provider>
+        </ThemeProvider>
+    )
+}
 

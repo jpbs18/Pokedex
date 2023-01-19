@@ -6,10 +6,9 @@
     .App-Container{
         height: 100vh;
         display: grid;
-        grid-template-rows: 10% 10% 77% 3%;
+        grid-template-rows: 10% 85% 5%;
         grid-template-areas:
         "h"
-        "a"
         "m"
         "f"
     ;

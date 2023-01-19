@@ -1,3 +1,13 @@
+# My Pokédex
+
+
+![Captura de ecrã 2023-01-19 124412](https://user-images.githubusercontent.com/108727605/213446589-7b3320aa-db9b-4e3a-9ed8-1274b3981a9f.png)
+![Captura de ecrã 2023-01-19 124453](https://user-images.githubusercontent.com/108727605/213446629-6eba3727-3a22-4d9d-9c36-63dfe6ac4459.png)
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

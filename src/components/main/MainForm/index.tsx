@@ -2,12 +2,14 @@ import {useContext, useState} from "react";
 import {AppContext} from "../../../context";
 import {Container, Button, Form} from "./style"
 import {getTotalLength} from "../../../utils/functions";
+import {useWindowDimensions} from "../../../hooks/useWindowDimensions";
 
 export default () => {
 
+    const {height, width} = useWindowDimensions()
     const {list, setList, setNoMatch, noMatch, selected, setSelected} = useContext(AppContext)
     const [currentName, setCurrentName] = useState("");
-    const conditionsRequired = list.length !== getTotalLength() && !noMatch
+    const conditionsRequired = list.length !== getTotalLength() && !noMatch && width > 420
     const filterByName = () => {
         const data = JSON.parse(localStorage.getItem("list")!)
         const filteredData = data.filter((pokemon: { name: string | string[]; }) => pokemon.name.includes(currentName.toLowerCase()))

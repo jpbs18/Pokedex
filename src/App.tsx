@@ -31,7 +31,7 @@ export default () => {
         }
         const getDetailsData = async() => {
 
-            const detailsData = urlArray.map(async (element: any) => {
+            const detailsData = urlArray.map(async (element: string) => {
                 const response = await fetch(element)
                 return response.json()
             })

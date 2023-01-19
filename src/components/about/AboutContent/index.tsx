@@ -1,4 +1,4 @@
-import {Container, Image, Icon, Section, Article, List} from "./style"
+import {Container, Image, Icon, Section, Article, List, SocialMediaContainer} from "./style"
 export default () => {
 
     return(
@@ -17,7 +17,6 @@ export default () => {
                         <li>Styled Components</li>
                         <li>React</li>
                     </List>
-                    <p></p>
                 </Article>
             </Section>
 
@@ -60,7 +59,7 @@ export default () => {
             </Section>
 
             <Section>
-                <h3>Contact me</h3>
+                <h2>Contact me</h2>
                 <Article>
                     <p>
                         This project is far from being finished, so feel free to contact me and give some pointers
@@ -71,12 +70,16 @@ export default () => {
                         You can reach to me on Linkedin or check other projects that I have at my GitHub account!
                         Just click on the following icons :)
                     </p>
-                    <a href="https://www.linkedin.com/in/jo%C3%A3o-santos21/" target="blank">
-                        <Icon src={`${process.env.PUBLIC_URL}/linkedin.webp`} alt="linkedin logo" width={"10%"}/>
-                    </a>
-                    <a href="https://github.com/jpbs18" target="blank">
-                        <Icon src={`${process.env.PUBLIC_URL}/github.webp`} alt="github logo" width={"10%"}/>
-                    </a>
+
+                    <SocialMediaContainer>
+                            <a href="https://www.linkedin.com/in/jo%C3%A3o-santos21/" target="blank">
+                                <Icon src={`${process.env.PUBLIC_URL}/linkedin.webp`} alt="linkedin logo" width={"10%"}/>
+                            </a>
+
+                            <a href="https://github.com/jpbs18" target="blank">
+                                <Icon src={`${process.env.PUBLIC_URL}/github.webp`} alt="github logo" width={"10%"}/>
+                            </a>
+                    </SocialMediaContainer>
                 </Article>
             </Section>
         </Container>

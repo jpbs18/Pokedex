@@ -6,7 +6,7 @@ import {useWindowDimensions} from "../../../hooks/useWindowDimensions";
 
 export default () => {
 
-    const {height, width} = useWindowDimensions()
+    const {width} = useWindowDimensions()
     const {list, setList, setNoMatch, noMatch, selected, setSelected} = useContext(AppContext)
     const [currentName, setCurrentName] = useState("");
     const conditionsRequired = list.length !== getTotalLength() && !noMatch && width > 420

@@ -4,7 +4,7 @@ import {useWindowDimensions} from "../../hooks/useWindowDimensions";
 
 export default () => {
 
-    const {height, width} = useWindowDimensions()
+    const {width} = useWindowDimensions()
 
     return (
         <div className="App-Container">

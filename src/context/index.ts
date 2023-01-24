@@ -15,7 +15,7 @@ export const AppContext= createContext<AppContextType>({
         ]
     }],
     setList: () => null,
-    types: [],
+    types: ["Loading"],
     noMatch: false,
     setNoMatch: () => null,
     selected:{id:0, isSelected:false},

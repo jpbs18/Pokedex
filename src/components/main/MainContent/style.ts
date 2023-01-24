@@ -9,7 +9,7 @@ export const Container = styled.div`
 
 export const List = styled.ul`
   list-style: none;
-  padding:0 5px;
+  padding:5px 5px;
   margin:0;
   overflow:auto;
   max-height:100%;

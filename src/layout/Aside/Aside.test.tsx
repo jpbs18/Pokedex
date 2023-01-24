@@ -3,7 +3,6 @@ import '@testing-library/jest-dom'
 import { MyAside } from "../index"
 import { AppContext } from "../../context";
 
-// @ts-ignore
 const renderComponent = () => {
 
     const types = ["Water", "Fire", "Electric", "Ground", "Steel", "Normal", "Fighting", "Fairy", "Dragon",

@@ -32,7 +32,7 @@ export default () => {
         <Container>
             <ListContainer>
                 <Title>Search by generation:</Title>
-                <List>
+                <List data-testid="generations">
                     {generations.map((gen,i) => {
                         return <Item key={`Gen-${gen.name}-${i}`}><Button onClick={() => filterByGeneration(gen.gap)}>
                             {gen.name}
@@ -43,7 +43,7 @@ export default () => {
 
             <ListContainer>
                 <Title>Search by type:</Title>
-                <List>
+                <List data-testid="types">
                     {types.map((type: string, i: number) => {
                         return <Item key={`Type-${type}-${i}`}>
                             <Button onClick={() => filterByType(type)}>{capitalize(type)}</Button>

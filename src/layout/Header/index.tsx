@@ -26,7 +26,7 @@ export default () => {
                 </List>
             </nav>
             <img src={`${process.env.PUBLIC_URL}/pokemon_logo.webp`} alt="Pokemon logo" width={"23%"} height={"85%"}/>
-            <Button onClick={handleDarkMode}>{darkMode ? "🌕" : "🌑"}</Button>
+            <Button onClick={handleDarkMode}>{darkMode ? "Light" : "Dark"}</Button>
         </Container>
     )
 }

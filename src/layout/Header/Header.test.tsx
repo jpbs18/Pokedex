@@ -1,14 +1,24 @@
-import {screen, render} from "@testing-library/react"
+import { screen, render } from "@testing-library/react"
 import user from "@testing-library/user-event"
-import {MemoryRouter} from "react-router-dom";
+import { MemoryRouter } from "react-router-dom";
 import '@testing-library/jest-dom'
-import {MyHeader} from "../index"
+import { MyHeader } from "../index"
+import { ModeContext } from "../../context";
 
-const renderComponent = () => {
+
+const renderComponent = (bool: boolean = false, func?: Function) => {
+
+    let darkMode = bool
+    const setDarkMode = () => {
+        func?.()
+    }
+
     return render(
-        <MemoryRouter>
-            <MyHeader/>
-        </MemoryRouter>
+        <ModeContext.Provider value={{darkMode, setDarkMode}}>
+            <MemoryRouter>
+                <MyHeader/>
+            </MemoryRouter>
+        </ModeContext.Provider>
     )
 }
 
@@ -43,4 +53,25 @@ test(`Header should render navigation button with text "Home" on About page and 
 
     expect(newNavigationButton).toBeInTheDocument()
     expect(newNavigationButton2).not.toBeInTheDocument()
+})
+
+test(`When in darkMode, theme button should have the text "Light"`, () => {
+    renderComponent(true)
+
+    const darkButton = screen.queryByText("Dark")
+    const lightButton = screen.getByText("Light")
+
+    expect(lightButton).toBeInTheDocument()
+    expect(darkButton).not.toBeInTheDocument()
+})
+
+
+test("When theme button is pressed, setDarkMode should be called", () => {
+    const mock = jest.fn()
+    renderComponent(false, mock)
+
+    const themeButton = screen.getByText("Dark")
+    user.click(themeButton)
+
+    expect(mock).toHaveBeenCalled()
 })

@@ -1,6 +1,6 @@
 import "./style"
 import {useContext} from "react";
-import {useLocation} from "react-router-dom"
+import usePage from "../../hooks/usePage"
 import {ModeContext} from "../../context";
 import {Button, Container, List} from "./style"
 import {Link} from "react-router-dom"
@@ -8,7 +8,7 @@ import {Link} from "react-router-dom"
 export default () => {
 
     const {darkMode, setDarkMode} = useContext(ModeContext)
-    const location = useLocation()
+    const path = usePage()
 
     const handleDarkMode = () => {
         localStorage.setItem("darkMode", JSON.stringify(!darkMode))
@@ -19,7 +19,7 @@ export default () => {
         <Container className="Header-Container">
             <nav>
                 <List>
-                    {location.pathname === "/" ?
+                    {path === "/" ?
                         <li><Link to="/about"><Button>About</Button></Link></li> :
                         <li><Link to="/"><Button>Home</Button></Link></li>
                     }

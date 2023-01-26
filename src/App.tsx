@@ -25,7 +25,7 @@ export default () => {
     useEffect(() => {
 
         if(localStorage.getItem("list") && localStorage.getItem("types")){
-            setList(JSON.parse(localStorage.getItem("list")!))
+            setList(JSON.parse(localStorage.getItem("list") || "{}"))
             setTypes(JSON.parse(localStorage.getItem("types")!))
             return
         }

@@ -6,10 +6,10 @@ import {useWindowDimensions} from "../../../hooks/useWindowDimensions";
 
 export default () => {
 
-    const {width} = useWindowDimensions()
+    const {innerWidth} = useWindowDimensions()
     const {list, setList, setNoMatch, noMatch, selected, setSelected} = useContext(AppContext)
     const [currentName, setCurrentName] = useState("");
-    const conditionsRequired = list.length !== getTotalLength() && !noMatch && width > 420
+    const conditionsRequired = list.length !== getTotalLength() && !noMatch && innerWidth > 420
     const filterByName = () => {
         const data = JSON.parse(localStorage.getItem("list")!)
         const filteredData = data.filter((pokemon: { name: string | string[]; }) => pokemon.name.includes(currentName.toLowerCase()))

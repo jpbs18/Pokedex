@@ -6,9 +6,9 @@ import { MyHeader } from "../index"
 import { ModeContext } from "../../context";
 
 
-const renderComponent = (bool: boolean = false, func?: Function) => {
+const renderComponent = (bool = false, func?: () => void) => {
 
-    let darkMode = bool
+    const darkMode = bool
     const setDarkMode = () => {
         func?.()
     }

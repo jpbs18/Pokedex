@@ -1,10 +1,13 @@
-import "./style.css";
+import React from 'react'
+import './style.css'
 
-export default () => {
-    return (
+const MySpinner = () => {
+  return (
         <div className="wrapper">
             <div className="pokeball">
             </div>
         </div>
-    );
+  )
 }
+
+export default MySpinner

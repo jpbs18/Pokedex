@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const Container = styled.header`
   background: ${props => props.theme.headerColor};
@@ -16,4 +16,3 @@ export const Button = styled.button`
   border:none;
   cursor:pointer;
 `
-

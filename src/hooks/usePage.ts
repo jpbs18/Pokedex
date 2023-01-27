@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 const usePage = () => {
-    const [path] = useState(window.location.pathname)
-    return path
+  const [path] = useState(window.location.pathname)
+  return path
 }
 export default usePage

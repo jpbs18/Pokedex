@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const Container = styled.div`
   background: ${props => props.theme.mainColor};
@@ -54,9 +54,11 @@ export const Heading = styled.h2`
 
   @media only screen and (max-width:600px){
     font-size:24px;
+  } 
 
   @media only screen and (max-width:420px){
    font-size:18px;
+  }
 `
 
 export const Img = styled.img`
@@ -68,4 +70,3 @@ export const Img = styled.img`
     height:280px;
   }
 `
-

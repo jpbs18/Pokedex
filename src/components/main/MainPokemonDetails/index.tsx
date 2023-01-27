@@ -1,27 +1,26 @@
-import {Container, Table, TableContainer, TableList, Button, ButtonContainer, Img, Heading} from "./style"
-import {useContext} from "react";
-import {AppContext} from "../../../context";
-import {capitalize} from "../../../utils/functions";
-import {statsList} from "../../../utils/variables";
+import { Container, Table, TableContainer, TableList, Button, ButtonContainer, Img, Heading } from './style'
+import React, { useContext } from 'react'
+import { AppContext } from '../../../context'
+import { capitalize } from '../../../utils/functions'
+import { statsList } from '../../../utils/variables'
 
-export default () => {
+const MyPokemon = () => {
+  const { list, selected, setSelected } = useContext(AppContext)
+  const pokemon = list.filter(pokemon => pokemon.id === selected.id)[0]
+  const lastPokemon = list[list.length - 1].id === selected.id
+  const firstPokemon = list[0].id === selected.id
 
-    const {list, selected, setSelected} = useContext(AppContext)
-    const pokemon = list.filter(pokemon => pokemon.id === selected.id)[0]
-    const lastPokemon = list[list.length - 1].id === selected.id
-    const firstPokemon = list[0].id === selected.id
+  const displayNextPokemon = () => {
+    const currentIndex = list.findIndex(pokemon => pokemon.id === selected.id)
+    setSelected({ ...selected, id: list[currentIndex + 1].id, isSelected: true })
+  }
 
-    const displayNextPokemon = () => {
-        const currentIndex = list.findIndex(pokemon => pokemon.id === selected.id)
-        setSelected({...selected, id:list[currentIndex + 1].id, isSelected:true})
-    }
+  const displayPreviousPokemon = () => {
+    const currentIndex = list.findIndex(pokemon => pokemon.id === selected.id)
+    setSelected({ ...selected, id: list[currentIndex - 1].id, isSelected: true })
+  }
 
-    const displayPreviousPokemon = () => {
-        const currentIndex = list.findIndex(pokemon => pokemon.id === selected.id)
-        setSelected({...selected, id:list[currentIndex - 1].id, isSelected:true})
-    }
-
-    return(
+  return (
         <Container>
                 <div>
                     <Heading>{`You chose ${capitalize(pokemon.name)}!`}</Heading>
@@ -37,7 +36,7 @@ export default () => {
                         <tbody>
                             <td>
                                 <TableList>
-                                    {statsList.map((stat,i) => <li key={i+10}><tr>{stat}</tr></li>)}
+                                    {statsList.map((stat, i) => <li key={i + 10}><tr>{stat}</tr></li>)}
                                 </TableList>
                             </td>
                             <td>
@@ -46,8 +45,8 @@ export default () => {
                                     <li><tr>{capitalize(pokemon.type)}</tr></li>
                                     <li><tr>{pokemon.height}</tr></li>
                                     <li><tr>{pokemon.weight}</tr></li>
-                                    {pokemon.stats.map((elem,i) =>
-                                        <li key={i+20}><tr>{elem["base_stat"]}</tr></li>)}
+                                    {pokemon.stats.map((elem, i) =>
+                                        <li key={i + 20}><tr>{elem.base_stat}</tr></li>)}
                                 </TableList>
                             </td>
                         </tbody>
@@ -57,8 +56,10 @@ export default () => {
                 <ButtonContainer>
                     <Button onClick={displayPreviousPokemon} disabled={firstPokemon}>Previous</Button>
                     <Button onClick={displayNextPokemon} disabled={lastPokemon}>Next</Button>
-                    <Button onClick={() => setSelected({...selected, id:0, isSelected:false})}>Main Page</Button>
+                    <Button onClick={() => { setSelected({ ...selected, id: 0, isSelected: false }) }}>Main Page</Button>
                 </ButtonContainer>
         </Container>
-    )
+  )
 }
+
+export default MyPokemon

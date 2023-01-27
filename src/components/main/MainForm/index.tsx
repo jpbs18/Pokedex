@@ -8,7 +8,8 @@ const MyForm = () => {
   const { innerWidth } = useWindowDimensions()
   const { list, setList, setNoMatch, noMatch, selected, setSelected } = useContext(AppContext)
   const [currentName, setCurrentName] = useState('')
-  const conditionsRequired = list.length !== getTotalLength() && !noMatch && innerWidth > 420
+  const conditionsRequired = list.length !== getTotalLength() && !noMatch && innerWidth > 420 &&
+      getTotalLength() !== undefined && list.length > 0
   const filterByName = () => {
     const data = JSON.parse(localStorage.getItem('list')!)
     const filteredData = data.filter((pokemon: { name: string | string[] }) => pokemon.name.includes(currentName.toLowerCase()))
@@ -28,10 +29,9 @@ const MyForm = () => {
 
   return (
         <Container className="Form-Container">
-            {conditionsRequired
-              ? <span className="Counter">{`Found ${list.length}/${getTotalLength()} results`}</span>
-              : null
-            }
+            {conditionsRequired && <span className="Counter">
+                {`Found ${list.length}/${getTotalLength()} results`}
+            </span>}
             <Form className="Label-Container">
                 <label>Search by name:
                     <input style={{ height: '22px' }} type="text" value={currentName}

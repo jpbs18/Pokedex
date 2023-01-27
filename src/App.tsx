@@ -1,10 +1,9 @@
-import { Home, About } from './views'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import React, { useState } from 'react'
 import { theme } from './theme'
 import { ThemeProvider } from 'styled-components'
 import { ModeContext, AppContext } from './context'
 import useInitialize from './hooks/useInitialize'
+import Routing from './routing'
 
 const App = () => {
   const { list, setList, types } = useInitialize()
@@ -16,12 +15,7 @@ const App = () => {
         <ThemeProvider theme={darkMode ? theme.darkMode : theme.lightMode}>
             <ModeContext.Provider value={{ darkMode, setDarkMode }}>
                 <AppContext.Provider value={{ list, setList, types, noMatch, setNoMatch, selected, setSelected }}>
-                    <BrowserRouter>
-                        <Routes>
-                            <Route path="/" element={<Home/>}/>
-                            <Route path="/about" element={<About/>}/>
-                        </Routes>
-                    </BrowserRouter>
+                    <Routing/>
                 </AppContext.Provider>
             </ModeContext.Provider>
         </ThemeProvider>

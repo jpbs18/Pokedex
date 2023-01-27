@@ -24,7 +24,7 @@ const MyContent = () => {
                          width={'30%'} height={'50%'}/>
                 </div>
              : <List className="Content-List">
-                    {list[0].name === ''
+                    {list.length === 0
                       ? <MySpinner/>
                       : list.map(pokemon => {
                         return <Item key={pokemon.id} onClick={() => { selectPokemon(pokemon.id) }}>

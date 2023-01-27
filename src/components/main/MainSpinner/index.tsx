@@ -4,7 +4,7 @@ import './style.css'
 const MySpinner = () => {
   return (
         <div className="wrapper">
-            <div className="pokeball">
+            <div className="poke-ball">
             </div>
         </div>
   )

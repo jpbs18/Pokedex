@@ -2,23 +2,7 @@ import { createContext } from 'react'
 import type { AppContextType, ModeContextType } from '../types'
 
 export const AppContext = createContext<AppContextType>({
-  list: [{
-    picture: '',
-    name: '',
-    id: 0,
-    type: '',
-    height: 0,
-    weight: 0,
-    stats: [{
-      base_stat: 0,
-      effort: 0,
-      stat: {
-        name: '',
-        url: ''
-      }
-    }
-    ]
-  }],
+  list: [],
   setList: () => null,
   types: ['Loading'],
   noMatch: false,

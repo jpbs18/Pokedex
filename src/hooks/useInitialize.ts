@@ -1,22 +1,11 @@
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 import type { Pokemon } from '../types'
 import { urlArray } from '../utils/functions'
 
 const useInitialize = () => {
-  const [list, setList] = useState([{
-    picture: '',
-    name: '',
-    id: 0,
-    type: '',
-    weight: 0,
-    height: 0,
-    stats: [{
-      base_stat: 0,
-      effort: 0,
-      stat: { name: '', url: '' }
-    }]
-  }])
-  const [types, setTypes] = useState(['Loading...'])
+  const [list, setList] = useState<Pokemon[]>([])
+  const [types, setTypes] = useState<string[]>(['Loading...'])
 
   useEffect(() => {
     if ((localStorage.getItem('list') != null) && (localStorage.getItem('types') != null)) {
@@ -26,8 +15,8 @@ const useInitialize = () => {
     }
     const getDetailsData = async () => {
       const detailsData = urlArray.map(async (element: string) => {
-        const response = await fetch(element)
-        return await response.json()
+        const response = await axios.get(element)
+        return response.data
       })
 
       const payload = (await Promise.all(detailsData)).map(data => ({
@@ -42,8 +31,9 @@ const useInitialize = () => {
 
       setList(payload)
       localStorage.setItem('list', JSON.stringify(payload))
-      setTypes([...new Set(payload.map((pokemon: Pokemon) => pokemon.type))])
-      localStorage.setItem('types', JSON.stringify([...new Set(payload.map((pokemon: Pokemon) => pokemon.type))]))
+      const uniqueTypes = [...new Set(payload.map((pokemon: Pokemon) => pokemon.type))]
+      setTypes(uniqueTypes)
+      localStorage.setItem('types', JSON.stringify(uniqueTypes))
     }
 
     void getDetailsData().then(console.log)

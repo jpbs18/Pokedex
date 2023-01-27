@@ -1,17 +1,19 @@
-import './app.css';
-import {MyHeader, MyMain, MyAside,MyFooter} from "../../layout"
-import {useWindowDimensions} from "../../hooks/useWindowDimensions"
+import React from 'react'
+import './app.css'
+import { MyHeader, MyMain, MyAside, MyFooter } from '../../layout'
+import useWindowDimensions from '../../hooks/useWindowDimensions'
 
-export default () => {
+const Home = () => {
+  const { innerWidth } = useWindowDimensions()
 
-    const {innerWidth} = useWindowDimensions()
-
-    return (
+  return (
         <div className="App-Container">
             <MyHeader/>
             {innerWidth < 420 || <MyAside/>}
             <MyMain/>
             <MyFooter/>
         </div>
-    );
+  )
 }
+
+export default Home

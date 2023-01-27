@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const Container = styled.main`
   display:grid;
@@ -52,7 +52,6 @@ export const SocialMediaContainer = styled.div`
     padding:20px;
   }
 `
-
 
 export const Image = styled.img`
   width:300px;

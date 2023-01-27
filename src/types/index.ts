@@ -5,6 +5,11 @@ interface Stat {
   url: string
 }
 
+interface Select {
+  id: number
+  isSelected: boolean
+}
+
 export interface Pokemon {
   picture: string
   name: string
@@ -25,8 +30,8 @@ export interface AppContextType {
   types: string[]
   noMatch: boolean
   setNoMatch: Dispatch<SetStateAction<boolean>>
-  selected: { id: number, isSelected: boolean }
-  setSelected: Dispatch<SetStateAction<{ id: number, isSelected: boolean }>>
+  selected: Select
+  setSelected: Dispatch<SetStateAction<Select>>
 }
 
 export interface ModeContextType {

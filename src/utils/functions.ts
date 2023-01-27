@@ -2,4 +2,6 @@ import { pokemonUrl } from './variables'
 
 export const urlArray = Array.from({ length: 494 }, (x, i) => `${pokemonUrl}/${i + 1}`)
 export const capitalize = (name: string) => name.charAt(0).toUpperCase() + name.substring(1)
-export const getTotalLength = (): number => JSON.parse(localStorage.getItem('list')!).length
+export const getTotalLength = (): number => {
+  return JSON.parse(localStorage.getItem('list') ?? '{}').length
+}

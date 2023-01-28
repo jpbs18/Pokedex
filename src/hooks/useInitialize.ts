@@ -1,22 +1,23 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import type { Pokemon } from '../types'
 import { urlArray } from '../utils/functions'
 
 const useInitialize = () => {
-  const [list, setList] = useState<Pokemon[]>([])
-  const [types, setTypes] = useState<string[]>(['Loading...'])
+  const [list, setList] = useState<Pokemon[]>(localStorage.getItem('list') === null
+    ? []
+    : JSON.parse(localStorage.getItem('list')!))
+  const [types, setTypes] = useState<string[]>(localStorage.getItem('types') === null
+    ? ['Loading...']
+    : JSON.parse(localStorage.getItem('types')!))
 
   useEffect(() => {
-    if ((localStorage.getItem('list') != null) && (localStorage.getItem('types') != null)) {
-      setList(JSON.parse(localStorage.getItem('list')!))
-      setTypes(JSON.parse(localStorage.getItem('types')!))
-      return
-    }
+    if (localStorage.getItem('list') !== null) return
+
+    const myAbortController = new AbortController()
     const getDetailsData = async () => {
-      const detailsData = urlArray.map(async (element: string) => {
-        const response = await axios.get(element)
-        return response.data
+      const detailsData = urlArray.map(async (url: string) => {
+        const response = await fetch(url, { signal: myAbortController.signal })
+        return await response.json()
       })
 
       const payload = (await Promise.all(detailsData)).map(data => ({
@@ -34,6 +35,8 @@ const useInitialize = () => {
       const uniqueTypes = [...new Set(payload.map((pokemon: Pokemon) => pokemon.type))]
       setTypes(uniqueTypes)
       localStorage.setItem('types', JSON.stringify(uniqueTypes))
+
+      return () => { myAbortController.abort() }
     }
 
     void getDetailsData().then(console.log)

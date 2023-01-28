@@ -1,16 +1,14 @@
 import React, { useContext } from 'react'
 import { AppContext } from '../../../context'
-import { capitalize } from '../../../utils/functions'
-import { Container, List, Item, Img, Type, Details } from './style'
+import { Container, List } from './style'
 import { MyPokemon, MySpinner } from '../../index'
-import { typeColors } from '../../../utils/variables'
+import PokemonCard from '../MainPokemonCard'
 
 const MyContent = () => {
   const { list, noMatch, selected, setSelected } = useContext(AppContext)
   const selectPokemon = (id: number) => {
     setSelected({ ...selected, id, isSelected: true })
   }
-  const color = (pokemonType: string) => Object.entries(typeColors).find(cl => cl.includes(pokemonType))?.[1]
 
   return (
         <Container className="Content-Container">
@@ -27,14 +25,10 @@ const MyContent = () => {
                     {list.length === 0
                       ? <MySpinner/>
                       : list.map(pokemon => {
-                        return <Item key={pokemon.id} onClick={() => { selectPokemon(pokemon.id) }}>
-                                    <Img src={pokemon.picture} alt={`Picture of ${pokemon.name}`} loading="lazy"/>
-                                    <Details>
-                                        <div>{`#${pokemon.id} - ${capitalize(pokemon.name)}`}</div>
-                                        <Type color={color(pokemon.type)}>{capitalize(pokemon.type)}</Type>
-                                    </Details>
-                                </Item>
-                      })}
+                        return <PokemonCard key={pokemon.id} id={pokemon.id} picture={pokemon.picture}
+                                            name={pokemon.name} type={pokemon.type} selectPokemon={selectPokemon}/>
+                      })
+                    }
                 </List>
             }
             </>

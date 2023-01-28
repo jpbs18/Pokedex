@@ -24,6 +24,14 @@ export interface Pokemon {
   }>
 }
 
+export interface CardProps {
+  id: number
+  picture: string
+  name: string
+  type: string
+  selectPokemon: (id: number) => void
+}
+
 export interface AppContextType {
   list: Pokemon[]
   setList: Dispatch<SetStateAction<Pokemon[]>>

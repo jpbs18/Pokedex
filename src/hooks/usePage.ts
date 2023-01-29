@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useRef } from 'react'
 
 const usePage = () => {
-  const [path] = useState(window.location.pathname)
-  return path
+  const path = useRef(window.location.pathname)
+  return path.current
 }
 export default usePage

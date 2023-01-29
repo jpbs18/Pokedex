@@ -31,7 +31,7 @@ const MyAside = () => {
                 <Title>Search by generation:</Title>
                 <List data-testid="generations">
                     {generations.map((gen, i) => {
-                      return <Item key={`Gen-${gen.name}-${i}`}><Button onClick={() => { filterByGeneration(gen.gap) }}>
+                      return <Item key={`Gen-${gen.name}-${i}`}><Button onClick={() => filterByGeneration(gen.gap)}>
                             {gen.name}
                         </Button></Item>
                     })}
@@ -43,7 +43,7 @@ const MyAside = () => {
                 <List data-testid="types">
                     {types.map((type: string, i: number) => {
                       return <Item key={`Type-${type}-${i}`}>
-                            <Button onClick={() => { filterByType(type) }}>{capitalize(type)}</Button>
+                            <Button onClick={() => filterByType(type)}>{capitalize(type)}</Button>
                         </Item>
                     })}
                 </List>

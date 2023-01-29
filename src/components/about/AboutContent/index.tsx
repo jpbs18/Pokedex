@@ -39,6 +39,7 @@ const MyAbout = () => {
 
                     <p>
                         Currently this API has tens of thousands of individual items in our database, including:
+                    </p>
                         <List>
                             <li>Moves</li>
                             <li>Abilities</li>
@@ -50,8 +51,6 @@ const MyAbout = () => {
                             <li>Pokédexes</li>
                             <li>Pokémon Evolution Chains</li>
                         </List>
-                    </p>
-
                     <p>
                         And that is just scratching the surface! To see all the different types of data we have,
                         check out the <a href="https://pokeapi.co/docs/v2" target="blank">docs</a>.

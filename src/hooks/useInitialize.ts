@@ -13,10 +13,11 @@ const useInitialize = () => {
   useEffect(() => {
     if (localStorage.getItem('list') !== null) return
 
-    const myAbortController = new AbortController()
+    const controller = new AbortController()
+    const { signal } = controller
     const getDetailsData = async () => {
       const detailsData = urlArray.map(async (url: string) => {
-        const response = await fetch(url, { signal: myAbortController.signal })
+        const response = await fetch(url, { signal })
         return await response.json()
       })
 
@@ -36,7 +37,7 @@ const useInitialize = () => {
       setTypes(uniqueTypes)
       localStorage.setItem('types', JSON.stringify(uniqueTypes))
 
-      return () => { myAbortController.abort() }
+      return () => controller.abort()
     }
 
     void getDetailsData().then(console.log)

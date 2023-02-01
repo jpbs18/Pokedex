@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { AppContext } from '../../../context'
 import { Container, List } from './style'
 import { MyPokemon, MySpinner } from '../../index'
 import PokemonCard from '../MainPokemonCard'
+import AppContext from '../../../context/app'
 
 const MyContent = () => {
   const { list, noMatch, selected, setSelected } = useContext(AppContext)

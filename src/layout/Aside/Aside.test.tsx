@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen, within } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { MyAside } from '../index'
-import { AppContext } from '../../context'
+import AppContext from '../../context/app/index'
 
 const renderComponent = () => {
   const types = ['Water', 'Fire', 'Electric', 'Ground', 'Steel', 'Normal', 'Fighting', 'Fairy', 'Dragon',

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
-import { AppContext } from '../../../context'
 import { Container, Button, Form } from './style'
 import { getTotalLength } from '../../../utils/functions'
 import useWindowDimensions from '../../../hooks/useWindowDimensions'
+import AppContext from '../../../context/app'
 
 const MyForm = () => {
   const { innerWidth } = useWindowDimensions()

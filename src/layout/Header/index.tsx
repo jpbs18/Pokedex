@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import { ModeContext } from '../../context'
 import { Button, Container, List } from './style'
 import { Link, useLocation } from 'react-router-dom'
+import ModeContext from '../../context/mode'
 
 const MyHeader = () => {
   const { darkMode, setDarkMode } = useContext(ModeContext)

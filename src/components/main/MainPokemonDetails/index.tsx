@@ -1,8 +1,8 @@
 import { Container, Table, TableContainer, TableList, Button, ButtonContainer, Img, Heading } from './style'
 import React, { useContext } from 'react'
-import { AppContext } from '../../../context'
 import { capitalize } from '../../../utils/functions'
 import { statsList } from '../../../utils/variables'
+import AppContext from '../../../context/app'
 
 const MyPokemon = () => {
   const { list, selected, setSelected } = useContext(AppContext)

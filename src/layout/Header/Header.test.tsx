@@ -4,7 +4,7 @@ import user from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
 import '@testing-library/jest-dom'
 import { MyHeader } from '../index'
-import { ModeContext } from '../../context'
+import ModeContext from '../../context/mode'
 
 const renderComponent = (bool = false, func?: () => void) => {
   const darkMode = bool

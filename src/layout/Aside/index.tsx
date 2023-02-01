@@ -1,9 +1,9 @@
 import { Container, List, Item, Title, Button, ListContainer } from './style'
 import { generations } from '../../utils/variables'
-import { AppContext } from '../../context'
 import React, { useContext } from 'react'
 import { capitalize } from '../../utils/functions'
 import type { Pokemon } from '../../types'
+import AppContext from '../../context/app'
 
 const MyAside = () => {
   const { types, setList, setNoMatch, setSelected, selected } = useContext(AppContext)

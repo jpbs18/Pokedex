@@ -12,7 +12,6 @@ const useInitialize = () => {
     : JSON.parse(localStorage.getItem('types')!))
 
   useEffect(() => {
-    console.log('Starting component')
     if (localStorage.getItem('list') !== null) return
 
     const controller = new AbortController()
@@ -41,10 +40,7 @@ const useInitialize = () => {
     }
 
     void getDetailsData()
-    return () => {
-      controller.abort()
-      console.log('Cleaning up!')
-    }
+    return () => controller.abort()
   }, [])
 
   return { list, setList, types }

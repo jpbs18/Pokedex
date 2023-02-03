@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import type { Pokemon } from '../types'
 import { urlArray } from '../utils/functions'
+import axios from 'axios'
 
 const useInitialize = () => {
   const [list, setList] = useState<Pokemon[]>(localStorage.getItem('list') === null
@@ -11,14 +12,15 @@ const useInitialize = () => {
     : JSON.parse(localStorage.getItem('types')!))
 
   useEffect(() => {
+    console.log('Starting component')
     if (localStorage.getItem('list') !== null) return
 
     const controller = new AbortController()
     const { signal } = controller
     const getDetailsData = async () => {
       const detailsData = urlArray.map(async (url: string) => {
-        const response = await fetch(url, { signal })
-        return await response.json()
+        const response = await axios.get(url, { signal })
+        return response.data
       })
 
       const payload = (await Promise.all(detailsData)).map(data => ({
@@ -36,11 +38,13 @@ const useInitialize = () => {
       const uniqueTypes = [...new Set(payload.map((pokemon: Pokemon) => pokemon.type))]
       setTypes(uniqueTypes)
       localStorage.setItem('types', JSON.stringify(uniqueTypes))
-
-      return () => controller.abort()
     }
 
-    void getDetailsData().then(console.log)
+    void getDetailsData()
+    return () => {
+      controller.abort()
+      console.log('Cleaning up!')
+    }
   }, [])
 
   return { list, setList, types }
